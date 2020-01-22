@@ -1,9 +1,9 @@
 package examples.docs
 
-import com.atlassian.applinks.api.ApplicationLink
-import com.atlassian.applinks.api.ApplicationLinkService
-import com.atlassian.applinks.api.application.confluence.ConfluenceApplicationType
-import com.atlassian.jira.issue.Issue
+//import com.atlassian.applinks.api.ApplicationLink
+//import com.atlassian.applinks.api.ApplicationLinkService
+//import com.atlassian.applinks.api.application.confluence.ConfluenceApplicationType
+//import com.atlassian.jira.issue.Issue
 import com.atlassian.sal.api.component.ComponentLocator
 import com.atlassian.sal.api.net.Request
 import com.atlassian.sal.api.net.Response
