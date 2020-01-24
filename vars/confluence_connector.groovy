@@ -1,4 +1,4 @@
-createSpace(String data)
+def call(def keyname, def spacename)
 { sh '''
   curl --request POST \
   --url https://vijaysh.atlassian.net/wiki/rest/api/space \
@@ -9,9 +9,4 @@ createSpace(String data)
   --data '{\r\n    "key": "${keyname}",\r\n    "name": "${spacename}",\r\n    "description": {\r\n        "plain": {\r\n            "value": "This is an example space",\r\n            "representation": "plain"\r\n        }\r\n    },\r\n    "metadata": {}\r\n}\r\n'
            
 '''
-}
-def call()
-{
-  def request = libraryResource 'data.json'
-createSpace(request) 
 }
