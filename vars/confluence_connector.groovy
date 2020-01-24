@@ -1,4 +1,4 @@
-def call(def keyname, def spacename)
+def call(def keyname)
 { sh '''
   curl --request POST \
   --url https://vijaysh.atlassian.net/wiki/rest/api/space \
@@ -6,7 +6,7 @@ def call(def keyname, def spacename)
   --header 'cache-control: no-cache' \
   --header 'content-type: application/json' \
   --header 'postman-token: 44321770-69d0-0b6b-9732-731230318d5b' \
-  --data '{\r\n    "key": "${keyname}",\r\n    "name": "${spacename}",\r\n    "description": {\r\n        "plain": {\r\n            "value": "This is an example space",\r\n            "representation": "plain"\r\n        }\r\n    },\r\n    "metadata": {}\r\n}\r\n'
+  --data '{\r\n    "key": "${keyname}",\r\n    "name": "v",\r\n    "description": {\r\n        "plain": {\r\n            "value": "This is an example space",\r\n            "representation": "plain"\r\n        }\r\n    },\r\n    "metadata": {}\r\n}\r\n'
            
 '''
 }
