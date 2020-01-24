@@ -1,12 +1,13 @@
 def call(def keyname)
 { sh '''
-  curl --request POST \
-  --url https://vijaysh.atlassian.net/wiki/rest/api/space \
-  --header 'authorization: Basic aGVnZGV2aWpheTExOEBnbWFpbC5jb206U3B4MEdVWGRLREhpVmVCRXdJMFhDRDU5' \
-  --header 'cache-control: no-cache' \
-  --header 'content-type: application/json' \
-  --header 'postman-token: 44321770-69d0-0b6b-9732-731230318d5b' \
-  --data '{\r\n    "key": '${keyname}',\r\n    "name": "v",\r\n    "description": {\r\n        "plain": {\r\n            "value": "This is an example space",\r\n            "representation": "plain"\r\n        }\r\n    },\r\n    "metadata": {}\r\n}\r\n'
-           
+  curl -X POST \
+  https://vijaysh.atlassian.net/wiki/rest/api/space \
+  -H 'authorization: Basic aGVnZGV2aWpheTExOEBnbWFpbC5jb206U3B4MEdVWGRLREhpVmVCRXdJMFhDRDU5' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  -H 'postman-token: ac7bc049-de7d-face-11e0-5458c2b74438' \
+  -d "@repo.json" \
+    "metadata": {}
 '''
+
 }
