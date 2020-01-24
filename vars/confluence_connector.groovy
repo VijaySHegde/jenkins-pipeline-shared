@@ -6,7 +6,7 @@ def call()
   --header 'cache-control: no-cache' \
   --header 'content-type: application/json' \
   --header 'postman-token: 44321770-69d0-0b6b-9732-731230318d5b' \
-  --data '{\r\n    "key": "NEW1",\r\n    "name": "spacevijay",\r\n    "description": {\r\n        "plain": {\r\n            "value": "This is an example space",\r\n            "representation": "plain"\r\n        }\r\n    },\r\n    "metadata": {}\r\n}\r\n'
+  --data '{\r\n    "key": "NEW2",\r\n    "name": "spacevijayhegde",\r\n    "description": {\r\n        "plain": {\r\n            "value": "This is an example space",\r\n            "representation": "plain"\r\n        }\r\n    },\r\n    "metadata": {}\r\n}\r\n'
            
 '''
 
