@@ -1,21 +1,13 @@
-def call(def keyname)
+def call()
 { sh '''
-  curl -X POST \
-  https://vijaysh.atlassian.net/wiki/rest/api/space \
-  -H 'authorization: Basic aGVnZGV2aWpheTExOEBnbWFpbC5jb206U3B4MEdVWGRLREhpVmVCRXdJMFhDRDU5' \
-  -H 'cache-control: no-cache' \
-  -H 'content-type: application/json' \
-  -H 'postman-token: bf2e7c28-3692-ba9b-7c91-41875647d4f2' \
-  -d '{
-    "key": "NEW",
-    "name": "New1",
-    "description": {
-        "plain": {
-            "value": "This is an example space",
-            "representation": "plain"
-        }
-    },
-    "metadata": {}
-}
+  curl --request POST \
+  --url https://vijaysh.atlassian.net/wiki/rest/api/space \
+  --header 'authorization: Basic aGVnZGV2aWpheTExOEBnbWFpbC5jb206U3B4MEdVWGRLREhpVmVCRXdJMFhDRDU5' \
+  --header 'cache-control: no-cache' \
+  --header 'content-type: application/json' \
+  --header 'postman-token: 44321770-69d0-0b6b-9732-731230318d5b' \
+  --data '{\r\n    "key": "${keyname}",\r\n    "name": "${spacename}",\r\n    "description": {\r\n        "plain": {\r\n            "value": "This is an example space",\r\n            "representation": "plain"\r\n        }\r\n    },\r\n    "metadata": {}\r\n}\r\n'
+           
 '''
+
 }
