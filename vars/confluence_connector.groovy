@@ -5,9 +5,16 @@ def call(def keyname)
   -H 'authorization: Basic aGVnZGV2aWpheTExOEBnbWFpbC5jb206U3B4MEdVWGRLREhpVmVCRXdJMFhDRDU5' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
-  -H 'postman-token: ac7bc049-de7d-face-11e0-5458c2b74438' \
-  -d "@repo.json" \
+  -H 'postman-token: bf2e7c28-3692-ba9b-7c91-41875647d4f2' \
+  -d '{
+    "key": "NEW",
+    "name": "New1",
+    "description": {
+        "plain": {
+            "value": "This is an example space",
+            "representation": "plain"
+        }
+    },
     "metadata": {}
-'''
-
+}
 }
