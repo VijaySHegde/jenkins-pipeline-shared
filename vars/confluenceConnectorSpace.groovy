@@ -1,6 +1,6 @@
 import groovy.json.JsonSlurper 
 
-/*@NonCPS*/
+@NonCPS
 createRepo(String data){
 def jsonSlurper = new JsonSlurper() 
 def resultJson = jsonSlurper.parseText(data)
@@ -18,9 +18,12 @@ httpRequest authentication: 'confluence_cred',
       "key"=${keyName}
         
    }""",
-	   responseHandle: 'NONE', url: "https://vijaysh.atlassian.net/wiki/rest/api/space"
+	   url: "https://vijaysh.atlassian.net/wiki/rest/api/space"
 }
 	def call(){
 def request = libraryResource 'data.json'
 createRepo(request)
 }
+
+
+/* responseHandle: 'NONE',url:*/
