@@ -1,4 +1,9 @@
-{
-"key":"DEMO2"
-"name":"demospace"
+{  
+"person": [
+{ "name":  "Kenn",  
+  "sex":  "male",  
+  "age":  28
+}
+
+]
 }
