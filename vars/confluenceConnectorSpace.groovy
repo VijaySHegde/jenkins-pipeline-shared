@@ -1,6 +1,6 @@
 import groovy.json.JsonSlurper 
 
-@NonCPS
+/*@NonCPS*/
 createRepo(String data){
 def jsonSlurper = new JsonSlurper() 
 def resultJson = jsonSlurper.parseText(data)
