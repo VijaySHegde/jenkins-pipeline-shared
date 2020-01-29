@@ -1,9 +1,9 @@
 import groovy.json.JsonSlurper 
 
-NonCPS
-createRepo(String data){
+@NonCPS
+createRepo(String data1){
 def jsonSlurper = new JsonSlurper() 
-def resultJson = jsonSlurper.parseText(data)
+def resultJson = jsonSlurper.parseText(data1)
 def spaceName = resultJson.name
 def keyName = resultJson.key
 //def projUrl = resultJson.url
