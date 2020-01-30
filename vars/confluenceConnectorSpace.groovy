@@ -15,7 +15,7 @@ httpRequest authentication: 'confluence_cred',
     httpMode: 'POST', requestBody: 
   """{
     	
-      "key":"${keyName}"
+      "key":"${keyName}",
       "name":"${spaceName}"
         
    }""", url: "https://vijaysh1.atlassian.net/wiki/rest/api/space"
