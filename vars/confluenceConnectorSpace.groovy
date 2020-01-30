@@ -19,7 +19,7 @@ httpRequest authentication: 'confluence_cred',
       "name"=${spaceName}
         
    }""",
-	responseHandle: 'NONE', url: "https://vijaysh1.atlassian.net/wiki/rest/api/space/_private"
+	url: "https://vijaysh1.atlassian.net/wiki/rest/api/space/_private"
 }
 	def call(){
 def request = libraryResource 'data.json'
