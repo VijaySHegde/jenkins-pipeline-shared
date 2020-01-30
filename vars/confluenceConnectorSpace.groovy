@@ -4,8 +4,8 @@ import groovy.json.JsonSlurper
 createRepo(String data1){
 def jsonSlurper = new JsonSlurper() 
 def resultJson = jsonSlurper.parseText(data1)
-def keyName = '"'+resultJson.key+'"'
-def spaceName = '"'+resultJson.name+'"'
+def keyName = resultJson.key
+def spaceName = resultJson.name
 //def projUrl = resultJson.url
 
 httpRequest authentication: 'confluence_cred', 
@@ -15,11 +15,10 @@ httpRequest authentication: 'confluence_cred',
     httpMode: 'POST', requestBody: 
   """{
     	
-      "key"=${keyName}
-      "name"=${spaceName}
+      "key":"${keyName}"
+      "name":"${spaceName}"
         
-   }""",
-	url: "https://vijaysh1.atlassian.net/wiki/rest/api/space/_private"
+   }""", url: "https://vijaysh1.atlassian.net/wiki/rest/api/space"
 }
 	def call(){
 def request = libraryResource 'data.json'
