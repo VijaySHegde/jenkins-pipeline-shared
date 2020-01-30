@@ -4,8 +4,8 @@ import groovy.json.JsonSlurper
 createRepo(String data1){
 def jsonSlurper = new JsonSlurper() 
 def resultJson = jsonSlurper.parseText(data1)
-def spaceName = resultJson.name
-def keyName = resultJson.key
+def spaceName = '"'+resultJson.name+'"'
+def keyName = '"'+resultJson.key+'"'
 //def projUrl = resultJson.url
 
 httpRequest authentication: 'confluence_cred', 
