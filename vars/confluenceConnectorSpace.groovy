@@ -18,7 +18,7 @@ httpRequest authentication: 'confluence_cred',
       "key"=${keyName}
         
    }""",
-	responseHandle: 'NONE', url: "https://vijaysh.atlassian.net/wiki/rest/api/space"
+	responseHandle: 'NONE', url: "https://vijaysh1.atlassian.net/wiki/rest/api/space"
 }
 	def call(){
 def request = libraryResource 'data.json'
