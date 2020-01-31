@@ -3,7 +3,7 @@ import groovy.json.JsonSlurper
 def call(message)
 {
  println(message)
- def request = libraryResource 'data.json' //using library resource for fetching json file
+ def request = libraryResource 'confluence1.json' //using library resource for fetching json file
  def jsonSlurper = new JsonSlurper() //creating object for json slurper
  def resultJson = jsonSlurper.parseText(request)// here we are retriving json file
  def keyName = resultJson.key // your key/name used for rest api
