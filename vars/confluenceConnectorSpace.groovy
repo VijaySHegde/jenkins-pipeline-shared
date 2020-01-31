@@ -21,7 +21,7 @@ httpRequest authentication: 'confluence_cred',
    }""", url: "https://vijaysh1.atlassian.net/wiki/rest/api/space"
 }
 	def call(){
-def request = libraryResource 'data.json'
+def request = libraryResource 'confluence1.json'
 createRepo(request)
 }
 
