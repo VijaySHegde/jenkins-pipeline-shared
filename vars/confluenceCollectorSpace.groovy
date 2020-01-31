@@ -13,6 +13,6 @@ httpRequest authentication: 'confluence_cred', contentType: "APPLICATION_JSON",
     httpMode: 'GET', url: "https://vijaysh.atlassian.net/wiki/rest/api/space/${spaceKey}"
 }
 	def call(){
-def request = libraryResource 'data.json'
+def request = libraryResource 'confluence2.json'
 showRepo(request)
 }
