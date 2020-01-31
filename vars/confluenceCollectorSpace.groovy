@@ -1,7 +1,7 @@
 import groovy.json.JsonSlurper 
 
 @NonCPS
-showRepo(String data){
+showSpace(String data){
 def jsonSlurper = new JsonSlurper() 
 def resultJson = jsonSlurper.parseText(data)
 //def repoName = resultJson.name
@@ -14,5 +14,5 @@ httpRequest authentication: 'confluence_cred', contentType: "APPLICATION_JSON",
 }
 	def call(){
 def request = libraryResource 'confluence1.json'
-showRepo(request)
+showSpace(request)
 }
