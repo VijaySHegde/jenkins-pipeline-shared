@@ -8,5 +8,5 @@ def call(message)
  def resultJson = jsonSlurper.parseText(request)// here we are retriving json file
  def keyName = resultJson.key // your key/name used for rest api
   Date date = new Date() // to print timestamp
-  sh " echo '${date}' confluence project with the keyName  '${keyName}' ${message} >>log.txt"
+  sh " echo '${date}' confluence project with the keyName  '${keyName}' ${message} >log.txt"
 }
