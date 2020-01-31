@@ -1,7 +1,7 @@
 import groovy.json.JsonSlurper 
 
 @NonCPS
-createRepo(String data1){
+createSpace(String data1){
 def jsonSlurper = new JsonSlurper() 
 def resultJson = jsonSlurper.parseText(data1)
 def keyName = resultJson.key
@@ -22,7 +22,7 @@ httpRequest authentication: 'confluence_cred',
 }
 	def call(){
 def request = libraryResource 'confluence1.json'
-createRepo(request)
+createSpace(request)
 }
 
 
