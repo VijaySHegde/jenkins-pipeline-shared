@@ -22,7 +22,7 @@ httpRequest authentication: 'confluence_cred',
     
       "title":"${titleName}",
       "type":"${typeName}",
-     "space"
+     "space":
     {
     "key":"${keyName}"
     }
