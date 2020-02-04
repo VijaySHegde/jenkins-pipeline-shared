@@ -8,7 +8,7 @@ def keyName = resultJson.key
 //def spaceName = resultJson.name
 def titleName = resultJson.title
 def typeName = resultJson.type
-def bodyName = resultJson.body
+//def bodyName = resultJson.body
 //def projUrl = resultJson.url
 echo "$keyName"
 httpRequest authentication: 'confluence_cred', 
@@ -22,7 +22,7 @@ httpRequest authentication: 'confluence_cred',
     
       "title":"${titleName}",
       "type":"${typeName}",
-      "body":"${bodyName}"
+     
       
         
    }""", url: "https://vijaysh1.atlassian.net/wiki/rest/api/content"
