@@ -19,13 +19,13 @@ httpRequest authentication: 'confluence_cred',
   """{
 
  
-    "space"
+    
+      "title":"${titleName}",
+      "type":"${typeName}",
+     "space"
     {
     "key":"${keyName}"
-    },
-      "title":"${titleName}",
-      "type":"${typeName}"
-     
+    }
       
         
    }""", url: "https://vijaysh1.atlassian.net/wiki/rest/api/content"
