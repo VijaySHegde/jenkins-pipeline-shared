@@ -17,11 +17,14 @@ httpRequest authentication: 'confluence_cred',
     
     httpMode: 'POST', requestBody: 
   """{
-    	
-      "key":"${keyName}",
-    
+
+ 
+    "space"
+    {
+    "key":"${keyName}"
+    },
       "title":"${titleName}",
-      "type":"${typeName}",
+      "type":"${typeName}"
      
       
         
