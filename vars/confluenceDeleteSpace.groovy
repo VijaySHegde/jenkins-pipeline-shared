@@ -8,7 +8,7 @@ def resultJson = jsonSlurper.parseText(data1)
 def idName = resultJson.id 
 //def spaceName = resultJson.name
 //def projUrl = resultJson.url
-echo "$keyName"
+//echo "$keyName"
 httpRequest authentication: 'confluence_cred', 
 	customHeaders: [[maskValue: false, name: 'Content-Type', value: 'application/json'], 
                     [maskValue: false, name: 'Accept', value: 'application/json']],
