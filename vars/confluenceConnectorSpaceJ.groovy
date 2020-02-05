@@ -12,9 +12,9 @@ println(projectName)
 println(keyName)
 
 	
-env.name = projectName
+//env.name = projectName
 
-env.key = keyName
+//env.key = keyName
   
 
 httpRequest authentication: 'confluence_cred1', 
