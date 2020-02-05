@@ -37,5 +37,6 @@ httpRequest authentication: 'confluence_cred1',
 	"type":${typeName}
 	
 	
-   }""",responseHandle: 'NONE', url: "http://ec2-3-15-148-45.us-east-2.compute.amazonaws.com:8090/rest/api/content",validResponseCodes: '200:600'
+   }""",responseHandle: 'NONE', url: "http://ec2-3-15-148-45.us-east-2.compute.amazonaws.com:8090/rest/api/content"
+	//,validResponseCodes: '200:600' for resolving not in range error.
 }
