@@ -30,10 +30,12 @@ httpRequest authentication: 'confluence_cred1',
     httpMode: 'POST', requestBody: 
   """{
     	
-    
+   "space":{
     "key":"${keyName}",
+	},
+	
 	"title":"${titleName}",
-	"type":"${typeName}"
+	"type":"${typeName}" 
 	
 	
    }""", url: "http://ec2-3-15-148-45.us-east-2.compute.amazonaws.com:8090/rest/api/content"
