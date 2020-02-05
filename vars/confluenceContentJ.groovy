@@ -4,12 +4,18 @@ def jsonString = jsondata
 def jsonObj = readJSON text: jsonString
 println(jsonObj.confluence)
 
-String a=jsonObj.confluence.spaces.space.name
-String projectName=a.replaceAll("\\[", "").replaceAll("\\]","");
-String b=jsonObj.confluence.spaces.space.key
-String keyName=b.replaceAll("\\[", "").replaceAll("\\]","");
-println(projectName)
+String a=jsonObj.confluence.spaces.space.key
+String keyName=a.replaceAll("\\[", "").replaceAll("\\]","");
+String b=jsonObj.confluence.spaces.space.pages.page.title
+String titleName=b.replaceAll("\\[", "").replaceAll("\\]","");
+String c=jsonObj.confluence.spaces.space.pages.page.type
+String typeName=c.replaceAll("\\[", "").replaceAll("\\]","");
+
+	
+
 println(keyName)
+println(titleName)
+println(typeName)
 
 	
 //env.name = projectName
@@ -25,7 +31,11 @@ httpRequest authentication: 'confluence_cred1',
   """{
     	
       
-        "key":"${projectName}",
-        "name":"${keyName}"
-   }""",responseHandle: 'NONE', url: "http://ec2-3-15-148-45.us-east-2.compute.amazonaws.com:8090/rest/api/space"
+        
+        "key":"${keyName}",
+	"title":${titleName},
+	"type":${typeName}
+	
+	
+   }""",responseHandle: 'NONE', url: "http://ec2-3-15-148-45.us-east-2.compute.amazonaws.com:8090/rest/api/content"
 }
