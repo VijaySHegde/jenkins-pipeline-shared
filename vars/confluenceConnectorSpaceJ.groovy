@@ -4,9 +4,9 @@ def jsonString = jsondata
 def jsonObj = readJSON text: jsonString
 println(jsonObj.confluence)
 
-String a=jsonObj.confluence.spaces.space.project_name
+String a=jsonObj.confluence.spaces.space.name
 String projectName=a.replaceAll("\\[", "").replaceAll("\\]","");
-String keyName=jsonObj.confluence.spaces.space.keyName
+String keyName=jsonObj.confluence.spaces.space.key
 println(projectName)
 println(keyName)
 
