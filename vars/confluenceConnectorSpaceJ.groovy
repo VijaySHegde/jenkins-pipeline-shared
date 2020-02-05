@@ -1,13 +1,15 @@
-import groovy.json.JsonSlurper 
+def call(jsondata){
+def jsonString = jsondata
+//println(jsonString)
+def jsonObj = readJSON text: jsonString
+println(jsonObj.confluence)
 
-@NonCPS
-createSpace(String data1){
-def jsonSlurper = new JsonSlurper() 
-def resultJson = jsonSlurper.parseText(data1)
-def keyName = resultJson.key
-def spaceName = resultJson.name
-//def projUrl = resultJson.url
-echo "$keyName"
+String a=jsonObj.confluence.spaces.space.project_name
+String projectName=a.replaceAll("\\[", "").replaceAll("\\]","");
+String keyName=confluence.spaces.space.keyName
+env.name = projectName
+  
+
 httpRequest authentication: 'confluence_cred', 
 	customHeaders: [[maskValue: false, name: 'Content-Type', value: 'application/json'], 
                     [maskValue: false, name: 'Accept', value: 'application/json']],
@@ -16,11 +18,7 @@ httpRequest authentication: 'confluence_cred',
   """{
     	
       "key":"${keyName}",
-      "name":"${spaceName}"
+      "name":"${projectName}"
         
    }""", url: "https://vijaysh1.atlassian.net/wiki/rest/api/space"
-}
-	def call(){
-def request = libraryResource 'confluence1.json'
-createSpace(request)
 }
