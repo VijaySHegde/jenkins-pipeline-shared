@@ -21,5 +21,5 @@ httpRequest authentication: 'confluence_cred',
       "key":"${keyName}",
       "name":"${projectName}"
         
-   }""", url: "https://vijaysh1.atlassian.net/wiki/rest/api/space"
+   }""", url: "http://ec2-3-15-148-45.us-east-2.compute.amazonaws.com:8090/rest/api/space"
 }
