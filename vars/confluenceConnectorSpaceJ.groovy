@@ -24,8 +24,8 @@ httpRequest authentication: 'confluence_cred1',
     httpMode: 'POST', requestBody: 
   """{
     	
-      "key":"${keyName}",
-      "name":"${projectName}"
-        
+      
+        "key":"${projectName}",
+        "name":"${keyName}"
    }""",responseHandle: 'NONE', url: "http://ec2-3-15-148-45.us-east-2.compute.amazonaws.com:8090/rest/api/space"
 }
