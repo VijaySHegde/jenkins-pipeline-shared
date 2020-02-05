@@ -11,7 +11,7 @@ env.name = projectName
 env.key = keyName
   
 
-httpRequest authentication: 'confluence_cred', 
+httpRequest authentication: 'confluence_cred1', 
 	customHeaders: [[maskValue: false, name: 'Content-Type', value: 'application/json'], 
                     [maskValue: false, name: 'Accept', value: 'application/json']],
     
