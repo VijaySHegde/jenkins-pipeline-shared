@@ -7,7 +7,12 @@ println(jsonObj.confluence)
 String a=jsonObj.confluence.spaces.space.project_name
 String projectName=a.replaceAll("\\[", "").replaceAll("\\]","");
 String keyName=jsonObj.confluence.spaces.space.keyName
+println(projectName)
+println(keyName)
+
+	
 env.name = projectName
+
 env.key = keyName
   
 
