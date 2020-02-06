@@ -7,7 +7,7 @@ println(jsonObj.confluence)
 //String a=jsonObj.confluence.spaces.space.key
 //String keyName=a.replaceAll("\\[", "").replaceAll("\\]","");
 String b=jsonObj.confluence.spaces.space.pages.page.name
-String groupName1=b.replaceAll("\\[", "").replaceAll("\\]","");
+String groupName=b.replaceAll("\\[", "").replaceAll("\\]","");
 //String c=jsonObj.confluence.spaces.space.pages.page.type
 //String typeName=c.replaceAll("\\[", "").replaceAll("\\]","");
 
