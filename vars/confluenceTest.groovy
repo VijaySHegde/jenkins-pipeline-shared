@@ -66,3 +66,4 @@ httpRequest authentication: 'confluence_cred1',
     httpMode: 'GET', url: "http://ec2-3-15-148-45.us-east-2.compute.amazonaws.com:8090/rest/api/group/${groupName}"
 	//,validResponseCodes: '200:600' for resolving not in range error.
 }
+return this
