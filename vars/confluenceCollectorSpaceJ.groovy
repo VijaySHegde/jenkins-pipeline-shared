@@ -4,17 +4,17 @@ def jsonString = jsondata
 def jsonObj = readJSON text: jsonString
 println(jsonObj.confluence)
 
-String a=jsonObj.confluence.spaces.space.pages.page.key
+String a=jsonObj.confluence.spaces.space.name
 String keyName=a.replaceAll("\\[", "").replaceAll("\\]","");
-String b=jsonObj.confluence.spaces.space.pages.page.name
-String privateName=b.replaceAll("\\[", "").replaceAll("\\]","");
+//String b=jsonObj.confluence.spaces.space.pages.page.name
+//String privateName=b.replaceAll("\\[", "").replaceAll("\\]","");
 //String c=jsonObj.confluence.spaces.space.pages.page.type
 //String typeName=c.replaceAll("\\[", "").replaceAll("\\]","");
 
 	
 
 println(keyName)
-println(privateName)
+//println(privateName)
 
 
 	
@@ -35,10 +35,10 @@ httpRequest authentication: 'confluence_cred1',
 		"key":"${keyName}",
 	
 	
-	"name": "${privateName}"
 	
 	
 	
-   }""", url: 'http://ec2-3-15-148-45.us-east-2.compute.amazonaws.com:8090/rest/api/space/_private'
+	
+   }""", url: 'http://ec2-3-15-148-45.us-east-2.compute.amazonaws.com:8090/rest/api/space/{keyName}'
 	//,validResponseCodes: '200:600' for resolving not in range error.
 }
