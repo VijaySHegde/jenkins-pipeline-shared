@@ -27,7 +27,7 @@ httpRequest authentication: 'confluence_cred1',
 	customHeaders: [[maskValue: false, name: 'Content-Type', value: 'application/json'], 
                     [maskValue: false, name: 'Accept', value: 'application/json']],
     
-    httpMode: 'POST', requestBody: 
+    httpMode: 'GET', requestBody: 
   """{
     	
    
@@ -39,6 +39,6 @@ httpRequest authentication: 'confluence_cred1',
 	
 	
 	
-   }""", url: 'http://ec2-3-15-148-45.us-east-2.compute.amazonaws.com:8090/rest/api/space/{key}'
+   }""", url: 'http://ec2-3-15-148-45.us-east-2.compute.amazonaws.com:8090/rest/api/space/{keyName}'
 	//,validResponseCodes: '200:600' for resolving not in range error.
 }
