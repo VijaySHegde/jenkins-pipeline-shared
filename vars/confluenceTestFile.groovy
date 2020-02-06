@@ -6,8 +6,8 @@ pipeline {
             steps {
                 script{
                     modules.confluenceTest = load "confluenceTest.groovy"
-                    modules.confluenceTest.call()
-                    modules.confluenceTest.info()
+                    //modules.confluenceTest.call()
+                    //modules.confluenceTest.info()
                 }
             }
         }
