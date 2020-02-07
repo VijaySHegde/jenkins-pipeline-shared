@@ -24,7 +24,7 @@ println(groupName)
   
 sh """ 
 curl -X GET \
-  http://ec2-3-15-148-45.us-east-2.compute.amazonaws.com:8090/rest/api/group/${name} \
+  http://ec2-3-15-148-45.us-east-2.compute.amazonaws.com:8090/rest/api/group/${groupName} \
   -H 'authorization: Basic YXNobmltOmppcmFAMTIz' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
