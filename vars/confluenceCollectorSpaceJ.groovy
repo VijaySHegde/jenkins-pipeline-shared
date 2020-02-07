@@ -31,7 +31,7 @@ println(keyName)
 	//,validResponseCodes: '200:600' for resolving not in range error.
 	*/
 sh """	curl -X GET \
-  http://ec2-3-15-148-45.us-east-2.compute.amazonaws.com:8090/rest/api/space/vijay \
+  http://ec2-3-15-148-45.us-east-2.compute.amazonaws.com:8090/rest/api/space/${keyName} \
   -H 'authorization: Basic YXNobmltOmppcmFAMTIz' \
   -H 'cache-control: no-cache' \
   -H 'postman-token: cea415e3-a225-aea1-bb8a-ab591072c633'
