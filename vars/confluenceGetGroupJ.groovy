@@ -23,10 +23,11 @@ println(jsonObj.confluence)
 //env.key = keyName
   
 
+sh """
 httpRequest authentication: 'confluence_cred1', 
 	customHeaders: [[maskValue: false, name: 'Content-Type', value: 'application/json'], 
                     [maskValue: false, name: 'Accept', value: 'application/json']],
     
-    httpMode: 'GET', url: 'http://ec2-3-15-148-45.us-east-2.compute.amazonaws.com:8090/rest/api/group'
+    httpMode: 'GET', url: 'http://ec2-3-15-148-45.us-east-2.compute.amazonaws.com:8090/rest/api/group' """
 	//,validResponseCodes: '200:600' for resolving not in range error.
 }
