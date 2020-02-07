@@ -24,10 +24,22 @@ println(jsonObj.confluence)
   
 
 
-httpRequest authentication: 'confluence_cred1', 
+/* httpRequest authentication: 'confluence_cred1', 
 	customHeaders: [[maskValue: false, name: 'Content-Type', value: 'application/json'], 
                     [maskValue: false, name: 'Accept', value: 'application/json']],
     
     httpMode: '-O', url: "http://ec2-3-15-148-45.us-east-2.compute.amazonaws.com:8090/rest/api/group"
 	//,validResponseCodes: '200:600' for resolving not in range error.
+} */
+sh """	curl -X GET \
+  http://ec2-3-15-148-45.us-east-2.compute.amazonaws.com:8090/rest/api/group \
+  -H 'authorization: Basic YXNobmltOmppcmFAMTIz' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  -H 'postman-token: fef04f7c-f689-dc15-1fd9-efaa6efb4243' \
+  -d '{
+ "key":"rams",
+ "name":"ramyaspeak"
+  }'
+"""
 }
