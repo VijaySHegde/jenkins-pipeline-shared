@@ -4,8 +4,8 @@ def jsonString = jsondata
 def jsonObj = readJSON text: jsonString
 println(jsonObj.confluence)
 
-String a=jsonObj.confluence.spaces.space.key
-String keyName=a.replaceAll("\\[", "").replaceAll("\\]","");
+//String a=jsonObj.confluence.spaces.space.key
+//String keyName=a.replaceAll("\\[", "").replaceAll("\\]","");
 //String b=jsonObj.confluence.spaces.space.pages.page.name
 //String privateName=b.replaceAll("\\[", "").replaceAll("\\]","");
 //String c=jsonObj.confluence.spaces.space.pages.page.type
@@ -13,7 +13,7 @@ String keyName=a.replaceAll("\\[", "").replaceAll("\\]","");
 
 	
 
-println(keyName)
+//println(keyName)
 //println(privateName)
 
 
@@ -31,9 +31,10 @@ println(keyName)
 	//,validResponseCodes: '200:600' for resolving not in range error.
 	*/
 sh """	curl -X GET \
-  http://ec2-3-15-148-45.us-east-2.compute.amazonaws.com:8090/rest/api/space/${keyName} \
+  'http://ec2-3-15-148-45.us-east-2.compute.amazonaws.com:8090/rest/api/search?cql=space%3Dvijay%20AND%20type%3Dpage' \
   -H 'authorization: Basic YXNobmltOmppcmFAMTIz' \
   -H 'cache-control: no-cache' \
-  -H 'postman-token: cea415e3-a225-aea1-bb8a-ab591072c633'
+  -H 'postman-token: a13d0cc1-e2ff-c62c-8e77-483f2f8bd0d4' \
+  -H 'start: 1'
   """
 }
