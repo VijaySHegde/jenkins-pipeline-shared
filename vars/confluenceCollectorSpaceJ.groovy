@@ -31,10 +31,10 @@ String keyName=a.replaceAll("\\[", "").replaceAll("\\]","");
     httpMode: 'GET', url: "http://ec2-3-15-148-45.us-east-2.compute.amazonaws.com:8090/rest/api/space/${keyName}"
 	//,validResponseCodes: '200:600' for resolving not in range error.
 	*/
-sh """	curl -X GET \
+sh '''	curl -X GET \
   'http://ec2-3-15-148-45.us-east-2.compute.amazonaws.com:8090/rest/api/search?cql=space%3D${keyName}%20AND%20type%3Dpage' \
   -H 'authorization: Basic YXNobmltOmppcmFAMTIz' \
   -H 'cache-control: no-cache' \
   -H 'postman-token: 4e435f93-2541-5279-6050-95cde2cf6175'-o output.json
-  """
+  '''
 }
