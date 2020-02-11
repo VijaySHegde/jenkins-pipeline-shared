@@ -37,7 +37,7 @@ String spaceName=a.replaceAll("\\[", "").replaceAll("\\]","");
   -d '{"jql":"project = EDN","startAt":0,"maxResults":2,"fields":["id","key"]} '| json_reformat
  '''
 } */
-def process=sh """curl -X GET \
+sh """curl -X GET \
   'http://ec2-3-15-148-45.us-east-2.compute.amazonaws.com:8090/rest/api/search?cql=space%3D${spaceName}%20AND%20type%3Dpage' \
   -H 'authorization: Basic YXNobmltOmppcmFAMTIz' \
   -H 'cache-control: no-cache' \
