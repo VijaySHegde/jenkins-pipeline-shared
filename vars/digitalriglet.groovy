@@ -122,7 +122,7 @@ def    total=jsonObja.Bamboo.individualtotal[j].totalBuilds
 
 	   
     }
-	
+	println("hi")
      def jsonBuilder1 = new groovy.json.JsonBuilder()
 
 jsonBuilder1(
