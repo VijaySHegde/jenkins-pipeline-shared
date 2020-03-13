@@ -4,7 +4,7 @@ import groovy.json.JsonOutput
 def call()
 {
  
-sh "git archive --remote=https://github.com/REVATHISARAISWATHI/jenkins-pipeline-shared.git HEAD resources/rig1.json
+sh "git archive --remote=https://github.com/REVATHISARAISWATHI/jenkins-pipeline-shared.git HEAD resources/rig1.json"
  sh "curl -X POST  -H  Accept:application/json -H  Content-Type:application/json --data-binary @resources/rig1.json http://3.134.156.211:3013/api/riglets/connectorServerDetails -o rigoutput.json"
    
 def jsonSlurper = new JsonSlurper()
