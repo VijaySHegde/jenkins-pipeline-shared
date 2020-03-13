@@ -23,9 +23,4 @@ def resultJson = jsonSlurper.parse(reader)
  
 return JsonOutput.toJson(resultJson)
 }
-/*def call ()
-{
-  def request = libraryResource 'rig1.json'
-  json(request)
-}
-*/
+
