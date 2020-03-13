@@ -99,7 +99,7 @@ def    total=jsonObja.Bamboo.individualtotal[j].totalBuilds
       {
         name="gitlab"
 	      
-        def jsonObjd= readJSON text: jsonStringa[l]
+        def jsonObjd= readJSON text: jsonStringa[i]
   
   def cnt =jsonObjd.gitlab.individual_commit_Details[j].Commit_cnt
 	       def email1=jsonObjd.gitlab.individual_commit_Details[j].email
