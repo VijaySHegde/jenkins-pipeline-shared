@@ -96,7 +96,7 @@ def total=jsonObjb.Bamboo.totalBuilds
   { 
    
 	  
-  if(jsonStringa[i].contains("Bamboo"))
+  if(jsonStringa[i].contains("Bamboo") && ci=="bamboo")
     {
      name="bamboo"
    
@@ -115,6 +115,34 @@ def    total=jsonObja.Bamboo.individualtotal[j].totalBuilds
 	    LIST1.add(["toolName":name,"metricName":"success_builds","value":scnt])
 	    
 
+	    LIST1.add(["toolName":name,"metricName":"failure_builds","value":fcnt])
+  }
+   }
+	  if(jsonStringa[i].contains("JENKINS") && ci=="jenkins")
+    {
+ 
+	   
+	    
+     name="jenkins"
+    
+	   def jsonObja = readJSON text: jsonStringa[i]
+
+ 
+  def scnt =jsonObja.JENKINS.individualsuccess[j].Success_cnt
+  def fcnt =jsonObja.JENKINS.individualfailure[j].Failure_cnt
+	    def    total=jsonObja.JENKINS.individualtotal[j].total_cnt
+ def email1=jsonObja.JENKINS.individualsuccess[j].email
+      
+
+ println(scnt)
+ 
+	  
+ if(email==email1)
+  {
+   LIST1.add(["toolName":name,"metricName":"total_builds","value":total])
+	    
+ 
+	   LIST1.add(["toolName":name,"metricName":"successful_builds","value":scnt])
 	    LIST1.add(["toolName":name,"metricName":"failure_builds","value":fcnt])
   }
    }
