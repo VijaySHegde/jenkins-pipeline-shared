@@ -16,8 +16,8 @@ httpRequest  contentType: "APPLICATION_JSON",
     "toolName":"${toolName}"
 
 
-  }""" ,url:"http://3.134.156.211:3013/api/riglets/connectorServerDetails"
-     def connection = url.toURL().openConnection()
+  }""" ,url:"http://3.134.156.211:3013/api/riglets/connectorServerDetails" -o rigoutput.json
+    /* def connection = url.toURL().openConnection()
  
  try {
       connection.connect()
@@ -25,7 +25,7 @@ httpRequest  contentType: "APPLICATION_JSON",
      return jsonSlurper.parseText(line)
   } finally {
         connection.disconnect();
-    } 
+    } */
 }
 def call(){
  def request = libraryResource 'rig1.json'
