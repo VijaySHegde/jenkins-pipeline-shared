@@ -49,7 +49,19 @@ int total=jsonObja.bitbucket.Commit_count
  
 	    LIST.add(["toolName":name,"metricName":"commits","value":total])
     }
-   if(jsonStringa[i].contains("Bamboo"))
+	   if(jsonStringa[i].contains("JENKINS") && ci="jenkins")
+    {
+      name="jenkins"
+      def jsonObjb = readJSON text: jsonStringa[i]
+	   // print jsonObjb
+      def total=jsonObjb.JENKINS.teambuild_cnt
+  def scnt =jsonObjb.JENKINS.teamsuccessbuild_cnt
+	    def fcnt=jsonObjb.JENKINS.teamfailurebuild_cnt
+	    LIST.add(["toolName":name,"metricName":"total_builds","value":total])
+	    LIST.add(["toolName":name,"metricName":"successful_builds","value":scnt])
+	    LIST.add(["toolName":name,"metricName":"failure_builds","value":fcnt])
+      }
+   if(jsonStringa[i].contains("Bamboo") && ci="bamboo")
     {
       name="bamboo"
 def jsonObjb = readJSON text: jsonStringa[i]
@@ -78,7 +90,7 @@ def total=jsonObjb.Bamboo.totalBuilds
    {
 	 def email=jsonObj.riglet_info.auth_users[j]
 	   int score=0
-    int reward=0
+   // int reward=0
     String name="  "
 	 for(i=0;i<jsonStringa.size();i++)
   { 
@@ -130,7 +142,7 @@ def    total=jsonObja.Bamboo.individualtotal[j].totalBuilds
 	    def email1=jsonObjc.bitbucket.Individual_commits[j].Email
 	       if(email==email1)
   {
-    LIST.add(["toolName":name,"metricName":"commits","value":cnt])
+    LIST1.add(["toolName":name,"metricName":"commits","value":cnt])
   }
       }
     }
