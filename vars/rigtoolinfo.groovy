@@ -1,6 +1,6 @@
 import groovy.json.*
 import groovy.json.JsonOutput
-json(rig)
+json(String data)
 {
    
   sh "curl -X POST  -H  Accept: application/json -H  Content-Type: application/json -d @rig.json  http://3.134.156.211:3013/api/riglets/connectorServerDetails -o rigoutput.json"
