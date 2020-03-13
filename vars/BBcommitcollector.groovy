@@ -25,7 +25,7 @@ println(Url)
 	sh "curl -X GET  -H -d  -u '${userId}':'${pass}' '${Url}'/rest/api/1.0/projects/'${Key}'/repos/'${repoName}'/commits?limit=50 -o outputbitbucket.json"
  //} 
 
-//def jsonSlurper = new JsonSlurper()
+def jsonSlurper = new JsonSlurper()
 def resultJson = jsonSlurper.parse(new File("/var/lib/jenkins/workspace/${JOB_NAME}/outputbitbucket.json"))
 def total = resultJson.size
 echo "Total no.of commits in $repoName $total"
