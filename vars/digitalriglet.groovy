@@ -49,7 +49,7 @@ int total=jsonObja.bitbucket.Commit_count
  
 	    LIST.add(["toolName":name,"metricName":"commits","value":total])
     }
-	   if(jsonStringa[i].contains("JENKINS") && ci="jenkins")
+	   if(jsonStringa[i].contains("JENKINS") && ci=="jenkins")
     {
       name="jenkins"
       def jsonObjb = readJSON text: jsonStringa[i]
@@ -61,7 +61,7 @@ int total=jsonObja.bitbucket.Commit_count
 	    LIST.add(["toolName":name,"metricName":"successful_builds","value":scnt])
 	    LIST.add(["toolName":name,"metricName":"failure_builds","value":fcnt])
       }
-   if(jsonStringa[i].contains("Bamboo") && ci="bamboo")
+   if(jsonStringa[i].contains("Bamboo") && ci=="bamboo")
     {
       name="bamboo"
 def jsonObjb = readJSON text: jsonStringa[i]
