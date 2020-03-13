@@ -17,6 +17,7 @@ println(repoName)
 def jsonSlurper = new JsonSlurper()
 def reader = jsonSlurper.parse(new File("/var/lib/jenkins/workspace/${JOB_NAME}/rigoutput.json"))
 def Url = reader.url
+println(Url)
 def userId=reader.userName
 def pass=reader.password
 // Date date = new Date() 
