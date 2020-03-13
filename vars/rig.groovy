@@ -17,7 +17,7 @@ def toolName= resultJson.toolName
 
 
   }"""  
-  sh "curl -X POST -H  Accept: application/json -H  Content-Type: application/json   http://3.134.156.211:3013/api/riglets/connectorServerDetails -o rigoutput.json"-o rigoutput.json
+  sh "curl -X POST -H  Accept: application/json -H  Content-Type: application/json   http://3.134.156.211:3013/api/riglets/connectorServerDetails -o rigoutput.json"
     /* def connection = url.toURL().openConnection()
  
  try {
