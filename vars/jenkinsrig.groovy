@@ -14,7 +14,7 @@ def mailcount = jsonObj.riglet_info.auth_users.size()
 	print(mailcount)
 //withCredentials([usernamePassword(credentialsId: 'jenkins_cred', passwordVariable: 'pass', usernameVariable: 'user')]) {
 //sh "curl -X GET -g http://52.14.229.175:8080/job/${JOB_NAME}/api/json?tree=builds[id,result,changeSets[items[authorEmail]]] -u suneel:11035ac86f58bc32d03d8e873b7cc063a3 -o username.json"
-	sh "curl -X GET -g http://3.14.254.146:8080/job/${ProjectName}/api/json?tree=builds[id,result,changeSets[items[authorEmail]]] -u vj:11e992889bcab5d24752ab728c45cb8c48 -o username.json"
+	sh "curl -X GET -g http://3.130.89.18:8080/job/${ProjectName}/api/json?tree=builds[id,result,changeSets[items[authorEmail]]] -u vj:11e992889bcab5d24752ab728c45cb8c48 -o username.json"
 	//}
 	def jsonSlurper = new JsonSlurper()
 def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/username.json"),"UTF-8"))
