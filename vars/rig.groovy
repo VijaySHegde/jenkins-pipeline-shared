@@ -7,7 +7,7 @@ def resultJson = jsonSlurper.parseText(data)
 def rigletName = resultJson.rigletName
 def toolName= resultJson.toolName
  
-httpRequest  contentType: "APPLICATION_JSON", 
+
     
     httpMode: 'POST', requestBody: 
   """{
@@ -16,7 +16,8 @@ httpRequest  contentType: "APPLICATION_JSON",
     "toolName":"${toolName}"
 
 
-  }""" ,url:"http://3.134.156.211:3013/api/riglets/connectorServerDetails" -o rigoutput.json
+  }"""  
+  sh "curl -H  Accept: application/json -H  Content-Type: application/json   http://3.134.156.211:3013/api/riglets/connectorServerDetails -o rigoutput.json"-o rigoutput.json
     /* def connection = url.toURL().openConnection()
  
  try {
