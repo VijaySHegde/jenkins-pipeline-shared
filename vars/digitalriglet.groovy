@@ -2,7 +2,7 @@ import groovy.json.*
 import groovy.json.JsonOutput
 
 
-def riglet1(jsondata,scm,ci,sonar)
+def riglet1(jsondata,scmjson,cijson,sonar)
 {
 def jsonString = jsondata
 def jsonObj = readJSON text: jsonString
@@ -12,8 +12,8 @@ int ecount = jsonObj.riglet_info.auth_users.size()
 	def ci=jsonObj.ci.tool.name
 List<String> jsonStringa= new ArrayList<String>();
  
-   jsonStringa.add(scm)
-	jsonStringa.add(ci)
+   jsonStringa.add(scmjson)
+	jsonStringa.add(cijson)
 	jsonStringa.add(sonar)
 	List<String> JSON = new ArrayList<String>();
   List<String> LIST = new ArrayList<String>();
