@@ -111,7 +111,7 @@ def    total=jsonObja.Bamboo.individualtotal[j].totalBuilds
     }
 	   JSON1[j]=LIST.clone()
 	   
-   JSON.add(["teamMemberName":email,"teamName":team,"metrics":JSON1[k]])
+   JSON.add(["teamMemberName":email,"teamName":team,"metrics":JSON1[j]])
     LIST1.clear()
 
 	   
