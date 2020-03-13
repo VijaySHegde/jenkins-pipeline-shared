@@ -27,7 +27,7 @@ for(i=0;i<jsonStringa.size();i++)
     String name="  "
 	 
 
-	  if(jsonStringa[i].contains("gitlab") && scm="gitlab")
+	  if(jsonStringa[i].contains("gitlab") && scm=="gitlab")
     {
       name="gitlab"
 def jsonObjc = readJSON text: jsonStringa[i]
