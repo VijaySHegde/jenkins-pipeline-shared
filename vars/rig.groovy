@@ -10,7 +10,7 @@ def toolName= resultJson.toolName
  
 
     
-  def requestBody:
+ requestBody:
   {
      "rigletName":"${rigletName}",
     "toolName":"${toolName}"
