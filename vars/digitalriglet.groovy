@@ -19,6 +19,7 @@ List<String> jsonStringa= new ArrayList<String>();
   List<String> LIST = new ArrayList<String>();
   List<String> LIST1 = new ArrayList<String>();
   List<String> JSON1 = new ArrayList<String>();
+	int i,j,k,l
 	
 for(i=0;i<jsonStringa.size();i++)
   { 
