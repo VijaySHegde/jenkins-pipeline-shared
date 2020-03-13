@@ -67,26 +67,27 @@ jsonBuilder(
   
 ) 
 
-   println(jsonBuilder.toPrettyString())
-    for(j=0;j<ecount;j++)
+  // println(jsonBuilder.toPrettyString())
+	
+    for(k=0;k<ecount;k++)
    {
-	 def email=jsonObj.riglet_info.auth_users[j]
+	 def email=jsonObj.riglet_info.auth_users[k]
 	   int score=0
     int reward=0
     String name="  "
-	 for(i=0;i<jsonStringa.size();i++)
+	 for(l=0;l<jsonStringa.size();l++)
   { 
    
 	  
-  if(jsonStringa[i].contains("Bamboo"))
+  if(jsonStringa[l].contains("Bamboo"))
     {
      name="bamboo"
    
-	   def jsonObja = readJSON text: jsonStringa[i]
-  def scnt =jsonObja.Bamboo.individualsuccess[j].Success_cnt
-  def fcnt =jsonObja.Bamboo.individualfailure[j].Failure_cnt
-def    total=jsonObja.Bamboo.individualtotal[j].totalBuilds
- def email1=jsonObja.Bamboo.individualsuccess[j].email
+	   def jsonObja = readJSON text: jsonStringa[l]
+  def scnt =jsonObja.Bamboo.individualsuccess[k].Success_cnt
+  def fcnt =jsonObja.Bamboo.individualfailure[k].Failure_cnt
+def    total=jsonObja.Bamboo.individualtotal[k].totalBuilds
+ def email1=jsonObja.Bamboo.individualsuccess[k].email
       
 	  
  if(email==email1)
@@ -101,23 +102,23 @@ def    total=jsonObja.Bamboo.individualtotal[j].totalBuilds
   }
    }
 	   
-	  if(jsonStringa[i].contains("gitlab"))
+	  if(jsonStringa[l].contains("gitlab"))
       {
         name="gitlab"
 	      
-        def jsonObjc= readJSON text: jsonStringa[i]
+        def jsonObjc= readJSON text: jsonStringa[l]
   
-  def cnt =jsonObjc.gitlab.individual_commit_Details[j].Commit_cnt
-	       def email1=jsonObjc.gitlab.individual_commit_Details[j].email
+  def cnt =jsonObjc.gitlab.individual_commit_Details[k].Commit_cnt
+	       def email1=jsonObjc.gitlab.individual_commit_Details[k].email
 	       if(email==email1)
   {
     LIST1.add(["toolName":name,"metricName":"commits","value":cnt])
   }
       }
     }
-	   JSON1[j]=LIST.clone()
+	   JSON1[k]=LIST.clone()
 	   
-   JSON.add(["teamMemberName":email,"teamName":team,"metrics":JSON1[j]])
+   JSON.add(["teamMemberName":email,"teamName":team,"metrics":JSON1[k]])
     LIST1.clear()
 
 	   
