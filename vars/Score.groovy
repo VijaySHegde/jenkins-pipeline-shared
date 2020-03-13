@@ -96,9 +96,9 @@ jsonBuilder(
   
 ) 
   
-  File file = new File("/var/lib/jenkins/workspace/${JOB_NAME}/Teamscore.json")
-file.write(jsonBuilder.toPrettyString())	
-  
+ // File file = new File("/var/lib/jenkins/workspace/${JOB_NAME}/Teamscore.json")
+//file.write(jsonBuilder.toPrettyString())	
+  return jsonBuilder
  
   //println(JSON)
 }
