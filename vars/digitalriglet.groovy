@@ -9,7 +9,7 @@ def jsonObj = readJSON text: jsonString
 int ecount = jsonObj.riglet_info.auth_users.size()
 	def team=jsonObj.riglet_info.name
 	def scm=jsonObj.scm.tool.name
-	def ci=jsonObj.scm.tool.name
+	def ci=jsonObj.ci.tool.name
 List<String> jsonStringa= new ArrayList<String>();
  
    jsonStringa.add(gitlab)
@@ -146,7 +146,7 @@ def    total=jsonObja.Bamboo.individualtotal[j].totalBuilds
   }
       }
     }
-	   JSON1[j]=LIST.clone()
+	   JSON1[j]=LIST1.clone()
 	   
    JSON.add(["teamMemberName":email,"teamName":team,"metrics":JSON1[j]])
     LIST1.clear()
