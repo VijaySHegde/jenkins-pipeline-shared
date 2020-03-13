@@ -14,8 +14,8 @@ println("No of users "+ ecount)
 println(Key)
 println(repoName)
 	
-def jsonSlurper = new JsonSlurper()
-def reader = jsonSlurper.parse(new File("/var/lib/jenkins/workspace/${JOB_NAME}/rigoutput.json"))
+def jsonSlurper1 = new JsonSlurper()
+def reader = jsonSlurper1.parse(new File("/var/lib/jenkins/workspace/${JOB_NAME}/rigoutput.json"))
 def Url = reader.url
 def userId=reader.userName
 def pass=reader.password
