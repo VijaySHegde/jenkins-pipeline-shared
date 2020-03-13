@@ -6,8 +6,8 @@ def call()
  
 
  sh "curl -X POST  -H  Accept:application/json -H  Content-Type:application/json --data-binary "{
-    "rigletName":"GamificationAtl",
-    "toolName":"bamboo"
+    "rigletName"="GamificationAtl",
+    "toolName"="bamboo"
 }" http://3.134.156.211:3013/api/riglets/connectorServerDetails -o rigoutput.json"
    
 def jsonSlurper = new JsonSlurper()
