@@ -6,7 +6,8 @@ def jsonSlurper = new JsonSlurper()
 def resultJson = jsonSlurper.parseText(data)
 def rigletName = resultJson.rigletName
 def toolName= resultJson.toolName
- httpRequest  contentType: "APPLICATION_JSON", 
+ 
+httpRequest  contentType: "APPLICATION_JSON", 
     
     httpMode: 'POST', requestBody: 
   """{
