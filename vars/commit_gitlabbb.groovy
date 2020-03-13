@@ -2,14 +2,18 @@ import groovy.json.*
 import groovy.json.JsonSlurper 
 //int ids1;
 
-def call(jsondata){
+def call(jsondata,rig){
       def jsonString = jsondata
       def jsonObj = readJSON text: jsonString
       String a=jsonObj.scm.repositories.repository.repo_name
 String Name=a.replaceAll("\\[", "").replaceAll("\\]","");
-     withCredentials([usernamePassword(credentialsId: 'gitlab_creds', passwordVariable: 'password', usernameVariable:'username')]) {
-      sh "curl -X GET    -u $username:$password https://gitlab.com/api/v4/users/5418155/projects -o outputgitlab.json"
-     }
+	def jsona = readJSON text: rig
+	def ip=jsona.url
+	def username=jsona.userName
+	def password=jsona.password
+     //withCredentials([usernamePassword(credentialsId: 'gitlab_creds', passwordVariable: 'password', usernameVariable:'username')]) {
+	sh "curl -X GET    -u ${username}:${password} ${ip}/api/v4/users/5418155/projects -o outputgitlab.json"
+    // }
    def jsonSlurper = new JsonSlurper()
  def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/outputgitlab.json"),"UTF-8"))
 def resultJson = jsonSlurper.parse(reader)
@@ -26,15 +30,19 @@ def usertotal = resultJson.size()
             }
          }
          }
-def commit(ids1,jsondata){
+def commit(ids1,jsondata,rig){
 	def jsonString = jsondata
 def jsonObj = readJSON text: jsonString
       println(ids1)
 	int ecount = jsonObj.riglet_info.auth_users.size()
          println("No of users "+ ecount)
-      withCredentials([usernamePassword(credentialsId: 'gitlab_creds', passwordVariable: 'password', usernameVariable:'username')]) {
-	      sh "curl -X GET   -u $username:$password https://gitlab.com/api/v4/projects/${ids1}/repository/commits?per_page=100 -o outputgitlab.json"
-      }
+	def jsona = readJSON text: rig
+	def ip=jsona.url
+	def username=jsona.userName
+	def password=jsona.password
+      //withCredentials([usernamePassword(credentialsId: 'gitlab_creds', passwordVariable: 'password', usernameVariable:'username')]) {
+	      sh "curl -X GET   -u${username}:${password}  ${ip}/api/v4/projects/${ids1}/repository/commits?per_page=100 -o outputgitlab.json"
+      //}
    def jsonSlurper = new JsonSlurper()
    def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/outputgitlab.json"),"UTF-8"))
 def resultJson = jsonSlurper.parse(reader)
