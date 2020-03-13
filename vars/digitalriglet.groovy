@@ -125,7 +125,7 @@ jsonBuilder(
   
 ) 
 
-   println(jsonBuilder.toPrettyString())
+   //println(jsonBuilder.toPrettyString())
      def jsonBuilder1 = new groovy.json.JsonBuilder()
 
 jsonBuilder1(
@@ -133,9 +133,11 @@ jsonBuilder1(
   
 ) 
   
- // File file = new File("/var/lib/jenkins/workspace/${JOB_NAME}/game.json")
-//file.write(jsonBuilder.toPrettyString())
+  File file = new File("/var/lib/jenkins/workspace/${JOB_NAME}/Team.json")
+file.write(jsonBuilder.toPrettyString())
+	File file1 = new File("/var/lib/jenkins/workspace/${JOB_NAME}/Indivdual.json")
+file1.write(jsonBuilder1.toPrettyString())
     
-  println(jsonBuilder1.toPrettyString())
+ // println(jsonBuilder1.toPrettyString())
   
 }
