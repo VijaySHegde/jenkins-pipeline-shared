@@ -5,7 +5,10 @@ def call()
 {
  
 
- sh "curl -X POST  -H  Accept:application/json -H  Content-Type:application/json --data-binary @resources/rig1.json http://3.134.156.211:3013/api/riglets/connectorServerDetails -o rigoutput.json"
+ sh "curl -X POST  -H  Accept:application/json -H  Content-Type:application/json --data-binary "{
+    "rigletName":"GamificationAtl",
+    "toolName":"bamboo"
+}" http://3.134.156.211:3013/api/riglets/connectorServerDetails -o rigoutput.json"
    
 def jsonSlurper = new JsonSlurper()
 def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/rigoutput.json"),"UTF-8"))
