@@ -27,7 +27,7 @@ for(i=0;i<jsonStringa.size();i++)
     String name="  "
 	 
 
-	  if(jsonStringa[i].contains("gitlab"))
+	  if(jsonStringa[i].contains("gitlab") && scm="gitlab")
     {
       name="gitlab"
 def jsonObjc = readJSON text: jsonStringa[i]
@@ -37,6 +37,18 @@ def cnt =jsonObjc.gitlab.commit_cnt
 	    LIST.add(["toolName":name,"metricName":"commits","value":cnt])
 
   }
+	  if(jsonStringa[i].contains("bitbucket")&& scm=="bitbucket")
+    {
+      name="bitbucket"
+	  //  metric="commits"
+//def jsonStringa = bitbucket
+def jsonObja = readJSON text: jsonStringa[i]
+int total=jsonObja.bitbucket.Commit_count
+ // println(jsonObja)
+  //println(total)
+ 
+	    LIST.add(["toolName":name,"metricName":"commits","value":total])
+    }
    if(jsonStringa[i].contains("Bamboo"))
     {
       name="bamboo"
@@ -95,7 +107,7 @@ def    total=jsonObja.Bamboo.individualtotal[j].totalBuilds
   }
    }
 	   
-	  if(jsonStringa[i].contains("gitlab"))
+	  if(jsonStringa[i].contains("gitlab") && scm="gitlab")
       {
         name="gitlab"
 	      
@@ -106,6 +118,19 @@ def    total=jsonObja.Bamboo.individualtotal[j].totalBuilds
 	       if(email==email1)
   {
     LIST1.add(["toolName":name,"metricName":"commits","value":cnt])
+  }
+      }
+	   if(jsonStringa[i].contains("bitbucket") && scm=="bitbucket")
+      {
+        name="bitbucket"
+	      //metric="commits"
+        def jsonObjc= readJSON text: jsonStringa[i]
+  //println(jsonObj)
+  def cnt=jsonObjc.bitbucket.Individual_commits[j].Commit_count
+	    def email1=jsonObjc.bitbucket.Individual_commits[j].Email
+	       if(email==email1)
+  {
+    LIST.add(["toolName":name,"metricName":"commits","value":cnt])
   }
       }
     }
@@ -125,7 +150,7 @@ jsonBuilder(
   
 ) 
 
-   //println(jsonBuilder.toPrettyString())
+   println(jsonBuilder.toPrettyString())
      def jsonBuilder1 = new groovy.json.JsonBuilder()
 
 jsonBuilder1(
@@ -138,6 +163,9 @@ file.write(jsonBuilder.toPrettyString())
 	File file1 = new File("/var/lib/jenkins/workspace/${JOB_NAME}/Indivdual.json")
 file1.write(jsonBuilder1.toPrettyString())
     
- // println(jsonBuilder1.toPrettyString())
+ println(jsonBuilder1.toPrettyString())
   
 }
+
+
+
