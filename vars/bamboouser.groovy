@@ -14,7 +14,7 @@ def key= jsonObj.ci.projectplankey.key
 	def IP=jsonObja.url
 	def username=jsonObja.userName
 	def password=jsonObja.password
-	println(ip)
+	//println(ip)
 //println(key)
  //withCredentials([usernamePassword(credentialsId: 'bamboo_cred', passwordVariable: 'password', usernameVariable:'username')]) {
 	sh "curl  -X GET  -u ${username}:${password} '${IP}/rest/api/latest/result/${key}.json?max-result=50&expand=results.result.artifacts&expand=changes.change.files&start-index=0' -o outputbamboo.json"
