@@ -62,25 +62,25 @@ def total=jsonObjb.Bamboo.totalBuilds
   }
 
 	
-    for(k=0;k<ecount;k++)
+    for(j=0;j<ecount;j++)
    {
-	 def email=jsonObj.riglet_info.auth_users[k]
+	 def email=jsonObj.riglet_info.auth_users[j]
 	   int score=0
     int reward=0
     String name="  "
-	 for(l=0;l<jsonStringa.size();l++)
+	 for(i=0;i<jsonStringa.size();i++)
   { 
    
 	  
-  if(jsonStringa[l].contains("Bamboo"))
+  if(jsonStringa[i].contains("Bamboo"))
     {
      name="bamboo"
    
-	   def jsonObja = readJSON text: jsonStringa[l]
-  def scnt =jsonObja.Bamboo.individualsuccess[k].Success_cnt
-  def fcnt =jsonObja.Bamboo.individualfailure[k].Failure_cnt
-def    total=jsonObja.Bamboo.individualtotal[k].totalBuilds
- def email1=jsonObja.Bamboo.individualsuccess[k].email
+	   def jsonObja = readJSON text: jsonStringa[i]
+  def scnt =jsonObja.Bamboo.individualsuccess[j].Success_cnt
+  def fcnt =jsonObja.Bamboo.individualfailure[j].Failure_cnt
+def    total=jsonObja.Bamboo.individualtotal[j].totalBuilds
+ def email1=jsonObja.Bamboo.individualsuccess[j].email
       
 	  
  if(email==email1)
@@ -95,21 +95,21 @@ def    total=jsonObja.Bamboo.individualtotal[k].totalBuilds
   }
    }
 	   
-	  if(jsonStringa[l].contains("gitlab"))
+	  if(jsonStringa[i].contains("gitlab"))
       {
         name="gitlab"
 	      
         def jsonObjd= readJSON text: jsonStringa[l]
   
-  def cnt =jsonObjd.gitlab.individual_commit_Details[k].Commit_cnt
-	       def email1=jsonObjd.gitlab.individual_commit_Details[k].email
+  def cnt =jsonObjd.gitlab.individual_commit_Details[j].Commit_cnt
+	       def email1=jsonObjd.gitlab.individual_commit_Details[j].email
 	       if(email==email1)
   {
     LIST1.add(["toolName":name,"metricName":"commits","value":cnt])
   }
       }
     }
-	   JSON1[k]=LIST.clone()
+	   JSON1[j]=LIST.clone()
 	   
    JSON.add(["teamMemberName":email,"teamName":team,"metrics":JSON1[k]])
     LIST1.clear()
