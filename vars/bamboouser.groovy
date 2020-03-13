@@ -3,14 +3,16 @@ import groovy.json.JsonOutput
 
 	
 
-def call(JSON,IP)
+def call(JSON,rig)
 {
 def jsonString = JSON
 def jsonObj = readJSON text: jsonString
 def mailcount = jsonObj.riglet_info.auth_users.size()
 	println(mailcount)
 def key= jsonObj.ci.projectplankey.key
-println(key)
+	def ip=rig.url
+	println(ip)
+//println(key)
  withCredentials([usernamePassword(credentialsId: 'bamboo_cred', passwordVariable: 'password', usernameVariable:'username')]) {
 	sh "curl  -X GET  -u $username:$password '${IP}/rest/api/latest/result/${key}.json?max-result=50&expand=results.result.artifacts&expand=changes.change.files&start-index=0' -o outputbamboo.json"
  }
