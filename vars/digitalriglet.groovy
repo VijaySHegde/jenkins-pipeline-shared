@@ -107,7 +107,7 @@ def    total=jsonObja.Bamboo.individualtotal[j].totalBuilds
   }
    }
 	   
-	  if(jsonStringa[i].contains("gitlab") && scm="gitlab")
+	  if(jsonStringa[i].contains("gitlab") && scm=="gitlab")
       {
         name="gitlab"
 	      
