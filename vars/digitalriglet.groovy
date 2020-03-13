@@ -67,7 +67,7 @@ jsonBuilder(
   
 ) 
 
-  // println(jsonBuilder.toPrettyString())
+   println(jsonBuilder.toPrettyString())
 	
     for(k=0;k<ecount;k++)
    {
@@ -106,9 +106,9 @@ def    total=jsonObja.Bamboo.individualtotal[k].totalBuilds
       {
         name="gitlab"
 	      
-        def jsonObjc= readJSON text: jsonStringa[l]
+        def jsonObjd= readJSON text: jsonStringa[l]
   
-  def cnt =jsonObjc.gitlab.individual_commit_Details[k].Commit_cnt
+  def cnt =jsonObjd.gitlab.individual_commit_Details[k].Commit_cnt
 	       def email1=jsonObjc.gitlab.individual_commit_Details[k].email
 	       if(email==email1)
   {
