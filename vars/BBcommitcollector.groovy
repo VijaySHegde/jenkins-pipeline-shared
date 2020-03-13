@@ -2,7 +2,7 @@
 import groovy.json.*
 import java.util.*; 
 
-def call(jsondata){
+def call(jsondata,rig){
 def jsonString = jsondata
 def jsonObj = readJSON text: jsonString
 String a=jsonObj.scm.projects.project.repositories.repository.repo_name
@@ -14,12 +14,12 @@ println("No of users "+ ecount)
 println(Key)
 println(repoName)
 	
-def jsonSlurper = new JsonSlurper()
-def reader = jsonSlurper.parse(new File("/var/lib/jenkins/workspace/${JOB_NAME}/rigoutput.json"))
-def Url = reader.url
+def jsona = readJSON text: rig
+def userId=jsona.userName
+def pass=jsona.password
+def Url=jsona.url
+println(userId)
 println(Url)
-def userId=reader.userName
-def pass=reader.password
 // Date date = new Date() 
  //withCredentials([usernamePassword(credentialsId: 'bitbucket_cred', passwordVariable: 'pass', usernameVariable: 'userId')]) {
 	sh "curl -X GET  -H -d  -u '${userId}':'${pass}' '${Url}'/rest/api/1.0/projects/'${Key}'/repos/'${repoName}'/commits?limit=50 -o outputbitbucket.json"
