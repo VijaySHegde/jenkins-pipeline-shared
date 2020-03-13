@@ -109,7 +109,7 @@ def    total=jsonObja.Bamboo.individualtotal[k].totalBuilds
         def jsonObjd= readJSON text: jsonStringa[l]
   
   def cnt =jsonObjd.gitlab.individual_commit_Details[k].Commit_cnt
-	       def email1=jsonObjc.gitlab.individual_commit_Details[k].email
+	       def email1=jsonObjd.gitlab.individual_commit_Details[k].email
 	       if(email==email1)
   {
     LIST1.add(["toolName":name,"metricName":"commits","value":cnt])
