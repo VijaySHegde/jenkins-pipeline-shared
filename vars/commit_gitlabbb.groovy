@@ -12,7 +12,7 @@ String Name=a.replaceAll("\\[", "").replaceAll("\\]","");
 	def username=jsona.userName
 	def password=jsona.password
      //withCredentials([usernamePassword(credentialsId: 'gitlab_creds', passwordVariable: 'password', usernameVariable:'username')]) {
-	sh "curl -X GET    -u ${username}:${password} ${ip}/api/v4/users/5418155/projects -o outputgitlab.json"
+	sh "curl -X GET    -u ${username}:${password} ${ip}api/v4/users/5418155/projects -o outputgitlab.json"
     // }
    def jsonSlurper = new JsonSlurper()
  def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/outputgitlab.json"),"UTF-8"))
@@ -41,7 +41,7 @@ def jsonObj = readJSON text: jsonString
 	def username=jsona.userName
 	def password=jsona.password
       //withCredentials([usernamePassword(credentialsId: 'gitlab_creds', passwordVariable: 'password', usernameVariable:'username')]) {
-	      sh "curl -X GET   -u${username}:${password}  ${ip}/api/v4/projects/${ids1}/repository/commits?per_page=100 -o outputgitlab.json"
+	      sh "curl -X GET   -u${username}:${password}  ${ip}api/v4/projects/${ids1}/repository/commits?per_page=100 -o outputgitlab.json"
       //}
    def jsonSlurper = new JsonSlurper()
    def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/outputgitlab.json"),"UTF-8"))
