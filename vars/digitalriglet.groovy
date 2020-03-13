@@ -75,10 +75,10 @@ def total=jsonObjb.Bamboo.totalBuilds
 	  if(jsonStringa[i].contains("sonar"))
     {
 	    name="sonar"
-	    def jsonObjd= readJSON text: jsonStringa[i]
-	    for(i=0;i<jsonObjd.sonar.metrics.component.measures.size();i++){
-    def sonar_metric=jsonObjd.sonar.metrics.component.measures[i].metric
-		    def d=jsonObjd.sonar.metrics.component.measures[i].value
+	    def jsonObje= readJSON text: jsonStringa[i]
+	    for(i=0;i<jsonObje.sonar.metrics.component.measures.size();i++){
+    def sonar_metric=jsonObje.sonar.metrics.component.measures[i].metric
+		    def d=jsonObje.sonar.metrics.component.measures[i].value
     double data = Double.parseDouble(d); 
        LIST.add(["toolName":name,"metricName":sonar_metric,"value":data])
 	    }
