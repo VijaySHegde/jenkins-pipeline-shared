@@ -10,7 +10,8 @@ def jsonObj = readJSON text: jsonString
 def mailcount = jsonObj.riglet_info.auth_users.size()
 	println(mailcount)
 def key= jsonObj.ci.projectplankey.key
-	def ip=rig.url
+	def jsonObja = readJSON text: rig
+	def ip=jsonObja.url
 	println(ip)
 //println(key)
  withCredentials([usernamePassword(credentialsId: 'bamboo_cred', passwordVariable: 'password', usernameVariable:'username')]) {
