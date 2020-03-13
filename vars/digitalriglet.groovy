@@ -60,15 +60,7 @@ def total=jsonObjb.Bamboo.totalBuilds
 	    }
     }
   }
-def jsonBuilder = new groovy.json.JsonBuilder()
 
-jsonBuilder(
- "teamName":team,
-  "metrics" : LIST
-  
-) 
-
-   println(jsonBuilder.toPrettyString())
 	
     for(k=0;k<ecount;k++)
    {
@@ -125,6 +117,15 @@ def    total=jsonObja.Bamboo.individualtotal[k].totalBuilds
 	   
     }
 	println("hi")
+	def jsonBuilder = new groovy.json.JsonBuilder()
+
+jsonBuilder(
+ "teamName":team,
+  "metrics" : LIST
+  
+) 
+
+   println(jsonBuilder.toPrettyString())
      def jsonBuilder1 = new groovy.json.JsonBuilder()
 
 jsonBuilder1(
