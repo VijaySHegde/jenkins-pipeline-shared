@@ -145,7 +145,7 @@ String response = sh(script: """curl  -X GET  -u ${username}:${password} '${IP}/
 	//def reader1 = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/bamboo.json"),"UTF-8"))
 //def resu = jsonSlurper.parse(reader1)
 
-	println(jsonBuilder)
+	//println(jsonBuilder)
 //jsonBuilder =jsonBuilder.Stringify()
 	return jsonBuilder
 
