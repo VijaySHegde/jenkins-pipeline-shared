@@ -17,8 +17,19 @@ def key= jsonObj.ci.projectplankey.key
 	//println(ip)
 //println(key)
  //withCredentials([usernamePassword(credentialsId: 'bamboo_cred', passwordVariable: 'password', usernameVariable:'username')]) {
-	String response = sh(script:"""sh "curl  -X GET  -u ${username}:${password} '${IP}/rest/api/latest/result/${key}.json?max-result=50&expand=results.result.artifacts&expand=changes.change.files&start-index=0' -o outputbamboo.json" """, returnStdout: true)
+ sh "curl  -X GET  -u ${username}:${password} '${IP}/rest/api/latest/result/${key}.json?max-result=50&expand=results.result.artifacts&expand=changes.change.files&start-index=0' -o outputbamboo.json"
 // }
+	def url=${IP}/rest/api/latest/result/${key}.json?max-result=50&expand=results.result.artifacts&expand=changes.change.files&start-index=0
+	 def connection = url.toURL().openConnection()
+ 
+ try {
+      connection.connect()
+     def line = new BufferedReader(new InputStreamReader(connection.getInputStream())).readLine()
+     def s= jsonSlurper.parseText(line)
+	 println(s)
+  } finally {
+        connection.disconnect();
+    } 
 	println(response)
 	def jsonSlurper = new JsonSlurper()
 def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/outputbamboo.json"),"UTF-8"))
