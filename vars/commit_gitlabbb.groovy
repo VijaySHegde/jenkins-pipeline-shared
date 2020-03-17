@@ -52,6 +52,8 @@ def total = resultJson.size()
    println(total)
 	println(ecount)*/
 		def resultJson= readJSON text: response
+	def total = resultJson.size()
+   println(total)
 
       //println(JsonOutput.toJson(resultJson))
       List<String> JSON = new ArrayList<String>();
@@ -59,6 +61,7 @@ def total = resultJson.size()
 	 List<String> LIST1 = new ArrayList<String>();
 
 	 def jsonBuilder = new groovy.json.JsonBuilder()
+	
 for(i=0;i<ecount;i++)
  {
 	def email=jsonObj.riglet_info.auth_users[i] 
