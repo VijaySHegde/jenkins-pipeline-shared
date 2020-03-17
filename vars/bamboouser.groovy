@@ -17,19 +17,22 @@ def key= jsonObj.ci.projectplankey.key
 	//println(ip)
 //println(key)
  //withCredentials([usernamePassword(credentialsId: 'bamboo_cred', passwordVariable: 'password', usernameVariable:'username')]) {
-String response = sh(script: """curl  -X GET -I -u ${username}:${password} '${IP}/rest/api/latest/result/${key}.json?max-result=50&expand=results.result.artifacts&expand=changes.change.files&start-index=0' -o outputbamboo.json """, returnStdout: true)
-println(response)  
+String sresponse = sh(script: """curl  -X GET -I -u ${username}:${password} '${IP}/rest/api/latest/result/${key}.json?max-result=50&expand=results.result.artifacts&expand=changes.change.files&start-index=0'  """, returnStdout: true)
+println(sresponse) 
+	String response = sh(script: """curl  -X GET  -u ${username}:${password} '${IP}/rest/api/latest/result/${key}.json?max-result=50&expand=results.result.artifacts&expand=changes.change.files&start-index=0'  """, returnStdout: true)
+//println(response) 
+	
 	//-o outputbamboo.json
 
 // }
 	
 	//println(response)
-	def jsonSlurper = new JsonSlurper()
+	/*def jsonSlurper = new JsonSlurper()
 def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/outputbamboo.json"),"UTF-8"))
-def resultJson = jsonSlurper.parse(reader)
-	/*def resultJson= readJSON text: response
+def resultJson = jsonSlurper.parse(reader)*/
+	def resultJson= readJSON text: response
 	def bno=resultJson.results.result[0].buildNumber
-	println(bno)*/
+	println(bno)
 
 
  
