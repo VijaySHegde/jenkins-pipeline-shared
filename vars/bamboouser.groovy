@@ -22,7 +22,7 @@ println(response1)
 
 // }
 	
-	println(response)
+	//println(response)
 	def jsonSlurper = new JsonSlurper()
 def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/outputbamboo.json"),"UTF-8"))
 def resultJson = jsonSlurper.parse(reader)
