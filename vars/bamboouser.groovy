@@ -19,7 +19,7 @@ def key= jsonObj.ci.projectplankey.key
  //withCredentials([usernamePassword(credentialsId: 'bamboo_cred', passwordVariable: 'password', usernameVariable:'username')]) {
 String sresponse = sh(script: """curl  -X GET  -v -u ${username}:${password} '${IP}/rest/api/latest/result/${key}.json?max-result=50&expand=results.result.artifacts&expand=changes.change.files&start-index=0'  """, returnStdout: true)
 //println(sresponse) 
-	String res=sresponse.split('Connection #0 to host ec2-18-220-143-53.us-east-2.compute.amazonaws.com left intact')
+	String res=sresponse.split(' ')
 	println(res[0])
 	println("hi")
 	println(res[2])
