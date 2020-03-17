@@ -19,11 +19,11 @@ def key= jsonObj.ci.projectplankey.key
  //withCredentials([usernamePassword(credentialsId: 'bamboo_cred', passwordVariable: 'password', usernameVariable:'username')]) {
 String sresponse = sh(script: """curl  -X GET -L -w '%{url_effective} %{http_code}\\n' -u ${username}:${password} '${IP}/rest/api/latest/result/${key}.json?max-result=50&expand=results.result.artifacts&expand=changes.change.files&start-index=0'  """, returnStdout: true)
 println("hi")
-	//println(sresponse) 
-	String res=sresponse.split(' ')
+	println(sresponse) 
+	/*String res=sresponse.split(' ')
 	println(res[0])
 	println("hi")
-	println(res[1])
+	println(res[1])*/
 	String response = sh(script: """curl  -X GET  -u ${username}:${password} '${IP}/rest/api/latest/result/${key}.json?max-result=50&expand=results.result.artifacts&expand=changes.change.files&start-index=0'  """, returnStdout: true)
 //println(response) 
 	
