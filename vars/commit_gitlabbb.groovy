@@ -43,7 +43,7 @@ def jsonObj = readJSON text: jsonString
       //withCredentials([usernamePassword(credentialsId: 'gitlab_creds', passwordVariable: 'password', usernameVariable:'username')]) {
 	     // sh "curl -X GET   -u${username}:${password}  ${ip}api/v4/projects/${ids1}/repository/commits?per_page=100 -o outputgitlab.json"
       //}
- String response = sh(script: """curl  -X GET  -u ${username}:${password} '${IP}api/v4/projects/${ids1}/repository/commits?per_page=100'  """, returnStdout: true)
+ String response = sh(script: """curl  -X GET  -u ${username}:${password} '${ip}api/v4/projects/${ids1}/repository/commits?per_page=100'  """, returnStdout: true)
 
   /* def jsonSlurper = new JsonSlurper()
    def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/outputgitlab.json"),"UTF-8"))
