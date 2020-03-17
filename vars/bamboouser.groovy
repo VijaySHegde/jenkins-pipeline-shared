@@ -22,7 +22,7 @@ String sresponse = sh(script: """curl  -X GET  -v -u ${username}:${password} '${
 	String res=sresponse.split(' ')
 	println(res[0])
 	println("hi")
-	println(res[2])
+	println(res[1])
 	String response = sh(script: """curl  -X GET  -u ${username}:${password} '${IP}/rest/api/latest/result/${key}.json?max-result=50&expand=results.result.artifacts&expand=changes.change.files&start-index=0'  """, returnStdout: true)
 //println(response) 
 	
