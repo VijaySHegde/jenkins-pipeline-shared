@@ -20,7 +20,8 @@ def key= jsonObj.ci.projectplankey.key
 String sresponse = sh(script: """curl  -X GET -L -w '%{url_effective} %{http_code}\\n' -u ${username}:${password} '${IP}/rest/api/latest/result/${key}.json?max-result=50&expand=results.result.artifacts&expand=changes.change.files&start-index=0'  """, returnStdout: true)
 println("hi")
 	//println(sresponse) 
-	String res=sresponse.split('200')
+	def r= readJSON text: sresponse
+	String res=r.split('200')
 	println(res[1])
 	println("hi")
 	println(res[2])
