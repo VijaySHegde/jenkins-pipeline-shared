@@ -21,9 +21,9 @@ String sresponse = sh(script: """curl  -X GET -L -w '%{url_effective} %{http_cod
 println("hi")
 	//println(sresponse) 
 	//JSON.stringify(sresponse)
-	println(sresponse) 
+	//println(sresponse) 
 	//def r= readJSON text: sresponse
-	String res=r.split('200')
+	String res=sresponse.split('200')
 	println(res[1])
 	println("hi")
 	println(res[2])
