@@ -1,8 +1,6 @@
 import groovy.json.*
 import groovy.json.JsonOutput
 
-	
-
 def call(JSON,rig)
 {
 def jsonString = JSON
