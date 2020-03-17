@@ -35,7 +35,7 @@ println("hi")
 	/*def jsonSlurper = new JsonSlurper()
 def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/outputbamboo.json"),"UTF-8"))
 def resultJson = jsonSlurper.parse(reader)*/
-	def resultJson= readJSON text: response
+	def resultJson= readJSON text: sresponse
 	def bno=resultJson.results.result[0].buildNumber
 	println(bno)
 
