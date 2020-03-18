@@ -158,6 +158,8 @@ def resultJson = jsonSlurper.parse(reader)
 	return jsonBuilder
 
 }
+	if(response==404)
+	throw new Exception ("Not found");
 catch(Exception e)
 {
 	println(response)
