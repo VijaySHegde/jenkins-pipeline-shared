@@ -163,15 +163,19 @@ catch(Exception e)
 {
 	println(response)
 	if(response.equals("400"))
+	{
 	println("Bad Request")
+	}
         if(response==401)
+	{
 	println("Unauthorized")
-        if(response==403)
-	println("Forbidden")
-        if(response.equals("404"))
-	println("Not Found")
-        if(response==500)
-	println("Internal Server Error")
+	}
+	if(response==403){
+		println("Forbidden")}
+	if(response.equals("404")){
+		println("Not Found")}
+	if(response==500){
+		println("Internal Server Error")}
 }
 	
 	
