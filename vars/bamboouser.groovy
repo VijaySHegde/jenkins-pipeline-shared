@@ -158,7 +158,7 @@ def resultJson = jsonSlurper.parse(reader)
 
 }
 
-catch(Excepton e)
+catch(Exception e)
 {
 	println("hi")
 }
