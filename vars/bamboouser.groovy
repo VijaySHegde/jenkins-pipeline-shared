@@ -11,24 +11,15 @@ def jsonObja = readJSON text: rig
 def IP=jsonObja.url
 def username=jsonObja.userName
 def password=jsonObja.password
-//String sresponse = sh(script: """curl  -X GET -L -w '%{url_effective} %{http_code}\\n' -u ${username}:${password} '${IP}/rest/api/latest/result/${key}.json?max-result=50&expand=results.result.artifacts&expand=changes.change.files&start-index=0'  """, returnStdout: true)
-//println(sresponse)
-	
-	//JSON.stringify(sresponse)
-	//println(sresponse) 
-	//def r= readJSON text: sresponse
-	/*String res=sresponse.split('200')
-	println(res[1])
-	println("hi")
-	println(res[2])*/
-	String response = sh(script: """curl  -X GET -L -w '%{http_code}\\n' -u ${username}:${password} '${IP}/rest/api/latest/result/${key}.json?max-result=50&expand=results.result.artifacts&expand=changes.change.files&start-index=0' -o outputbamboo.json """, returnStdout: true)
+
+String response = sh(script: """curl  -X GET -L -w '%{http_code}\\n' -u ${username}:${password} '${IP}/rest/api/latest/result/${key}.json?max-result=50&expand=results.result.artifacts&expand=changes.change.files&start-index=0' -o outputbamboo.json """, returnStdout: true)
 println(response) 
 	
 	
 
-// }
+
 	
-	//println(response)
+	
 	def jsonSlurper = new JsonSlurper()
 def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/outputbamboo.json"),"UTF-8"))
 def resultJson = jsonSlurper.parse(reader)
