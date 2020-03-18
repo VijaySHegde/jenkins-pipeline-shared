@@ -204,8 +204,13 @@ file.write(jsonBuilder.toPrettyString())
 file1.write(jsonBuilder1.toPrettyString())
     
  println(jsonBuilder1.toPrettyString())
+	//return jsonBuilder,jsonBuilder1
   
 }
-
+def memberpushdb(IP,data)
+{
+	sh "curl -X POST --header 'Content-Type: application/json' --data '{\"${data}\"}' '${IP}'/api/metrics/members/add"
+  echo "Sending data to Gamification API"
+}
 
 
