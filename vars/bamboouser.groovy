@@ -21,6 +21,8 @@ def password=jsonObja.password
 	println(res[1])
 	println("hi")
 	println(res[2])*/
+	try
+	{
 	String response = sh(script: """curl  -X GET -L -w '%{http_code}\\n' -u ${username}:${password} '${IP}//rest/api/latest/result/${key}.json?max-result=50&expand=results.result.artifacts&expand=changes.change.files&start-index=0' -o outputbamboo.json """, returnStdout: true)
 println(response) 
 	
@@ -29,8 +31,7 @@ println(response)
 // }
 	
 	//println(response)
-	try
-	{
+	
 	def jsonSlurper = new JsonSlurper()
 def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/outputbamboo.json"),"UTF-8"))
 def resultJson = jsonSlurper.parse(reader)
