@@ -159,7 +159,7 @@ def resultJson = jsonSlurper.parse(reader)
 
 }
 
-catch(Exception response)
+catch(Exception e)
 {
 	println(response)
 	if(response.equals("400"))
