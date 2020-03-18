@@ -75,17 +75,7 @@ return jsonBuilder
 	
 	catch(NotFound)
 	{
-	println("Exception error")
-	if(sresponse==400)
-	println("Bad Request")
-        if(sresponse==401)
-	println("Unauthorized")
-        if(sresponse==403)
-	println("Forbidden")
-        if(sresponse==404)
 	println("Not Found")
-        if(sresponse==500)
-	println("Internal Server Error")
 	}
 	
 }
