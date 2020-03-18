@@ -156,8 +156,8 @@ def resultJson = jsonSlurper.parse(reader)
 	//println(jsonBuilder)
 //jsonBuilder =jsonBuilder.Stringify()
 	return jsonBuilder
-if ( response==4040)
-        throw new exe();
+if ( response==404)
+		throw new Exception ("some error message");
 }
 catch (exa exception)
 {
