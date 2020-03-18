@@ -24,7 +24,7 @@ def password=jsonObja.password
 	
 	def response = sh(script: """curl  -X GET -L -w '%{http_code}\\n' -u ${username}:${password} '${IP}/rest/api/latest/result/${key}.json?max-result=50&expand=results.result.artifacts&expand=changes.change.files&start-index=0' -o outputbamboo.json """, returnStdout: true)
 println(response) 
-	if(response=="200")
+	if(respons.contains("200"))
 		{
 		println("scuccesslful")	
 			echo "hello"
