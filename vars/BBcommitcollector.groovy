@@ -75,6 +75,7 @@ return jsonBuilder
 	
 	catch(Exception e)
 	{
+	println("Exception error")
 	if(sresponse==400)
 	println("Bad Request")
         if(sresponse==401)
