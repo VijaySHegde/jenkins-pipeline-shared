@@ -156,14 +156,15 @@ def resultJson = jsonSlurper.parse(reader)
 	//println(jsonBuilder)
 //jsonBuilder =jsonBuilder.Stringify()
 	return jsonBuilder
-		if(response==404)
-	throw new Exception ("Not found");
+		
 
 }
 	
 catch(Exception e)
 {
 	println(response)
+	if(response==404)
+	throw new Exception ("Not found");
 	if(response.equals("400"))
 	{
 	println("Bad Request")
