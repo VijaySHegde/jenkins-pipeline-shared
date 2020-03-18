@@ -172,7 +172,7 @@ catch(Exception e)
 	}
 	if(response==403){
 		println("Forbidden")}
-	if(response.equals("404")){
+	if(response.equals(404)){
 		println("Not Found")}
 	if(response==500){
 		println("Internal Server Error")}
