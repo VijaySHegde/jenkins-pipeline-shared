@@ -22,7 +22,7 @@ println(userId)
 println(Url)
 // Date date = new Date() 
  //withCredentials([usernamePassword(credentialsId: 'bitbucket_cred', passwordVariable: 'pass', usernameVariable: 'userId')]) {
-String sresponse = sh(script: """curl -X GET -L -w '%{http_code}\\n' -H -d  -u '${userId}':'${pass}' '${Url}'/rest/api/1.0/projects/'${Key}'/repos/'${repoName}'/commits?limit=50 -o outputbitbucket.json""", returnStdout: true)
+String sresponse = sh(script: """curl -X GET -L -w '%{http_code}\\n' -H -d  -u '${userId}':'${pass}' '${Url}'/rest/api/1.0/projects/'${Key}'/repos/'${repoName}'/comits?limit=50 -o outputbitbucket.json""", returnStdout: true)
  //} 
 //HttpURLConnection http = (HttpURLConnection)url.openConnection();
 //int statusCode = http.getResponseCode();
@@ -74,7 +74,17 @@ return jsonBuilder
 }
 	catch(Exception e)
 	{
-	println("Exception occurred")
+	if(sresponse=="400")
+	println("Bad Request)
+        if(sresponse=="401")
+	println("Unauthorized")
+        if(sresponse=="403")
+	println("Forbidden")
+        if(sresponse=="404")
+	println("Not Found")
+        if(sresponse=="500")
+	println("Internal Server Error")
+	
 	}
 }
 
