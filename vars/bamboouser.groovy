@@ -158,9 +158,7 @@ def resultJson = jsonSlurper.parse(reader)
 	return jsonBuilder
 
 }
- catch(NotFound e){
-       println("Warning: ArithmeticException");
-     }
+
 catch(Exception e)
 {
 	println(response)
