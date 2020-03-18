@@ -24,7 +24,10 @@ def password=jsonObja.password
 	
 	def response = sh(script: """curl  -X GET -L -w '%{http_code}\\n' -u ${username}:${password} '${IP}/rest/api/latest/result/${key}.json?max-result=50&expand=results.result.artifacts&expand=changes.change.files&start-index=0' -o outputbamboo.json """, returnStdout: true)
 println(response) 
-	
+	if(response.equals(200))
+		{
+		println("scuccesslful")	
+		}
 	
 
 // }
@@ -155,10 +158,7 @@ def resultJson = jsonSlurper.parse(reader)
 
 	//println(jsonBuilder)
 //jsonBuilder =jsonBuilder.Stringify()
-		if(response.equals("200"))
-		{
-		println("scuccesslful")	
-		}
+		
 	return jsonBuilder
 	
 
