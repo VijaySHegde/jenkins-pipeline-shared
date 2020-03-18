@@ -72,6 +72,8 @@ jsonBuilder.bitbucket(
 	println(jsonBuilder.toPrettyString())
 return jsonBuilder
 }
+	if(sresponse==404)
+	{
 	catch(Exception e)
 	{
 	if(sresponse==400)
@@ -84,7 +86,7 @@ return jsonBuilder
 	println("Not Found")
         if(sresponse==500)
 	println("Internal Server Error")
-	
+	}
 	}
 }
 
