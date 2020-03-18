@@ -164,7 +164,7 @@ catch(Exception e)
 }
 	finally
 	{
-		if(response.startsWith(2))
+		if(response.charAt(0).equals(2))
 	{
 		println("scuccessfull")
 	}
