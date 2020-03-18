@@ -21,34 +21,40 @@ def password=jsonObja.password
 	println(res[1])
 	println("hi")
 	println(res[2])*/
-String response = sh(script: """curl  -X GET -L -w '%{http_code}\\n' -u ${username}:${password} '${IP}/rest/api/latest/result/${key}.json?max-result=50&expand=results.result.artifacts&expand=changes.change.files&start-index=0' -o outputbamboo.json """, returnStdout: true)
+	try
+	{
+	String response = sh(script: """curl  -X GET -L -w '%{http_code}\\n' -u ${username}:${password} '${IP}//rest/api/latest/result/${key}.json?max-result=50&expand=results.result.artifacts&expand=changes.change.files&start-index=0' -o outputbamboo.json """, returnStdout: true)
 println(response) 
 	
-try
-{
-def jsonSlurper = new JsonSlurper()
+	
+
+// }
+	
+	//println(response)
+	
+	def jsonSlurper = new JsonSlurper()
 def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/outputbamboo.json"),"UTF-8"))
 def resultJson = jsonSlurper.parse(reader)
-//def resultJson= readJSON text: response
-def bno=resultJson.results.result[0].buildNumber
-//println(bno)
+	//def resultJson= readJSON text: response
+	def bno=resultJson.results.result[0].buildNumber
+	println(bno)
 
 
  
 
 
-         List<String> USERS = new ArrayList<String>()
-         List<String> USERF = new ArrayList<String>()
-	 List<String> LISTSUCCESS=new ArrayList<String>()
-	 List<String> LISS=new ArrayList<String>()
-	 List<String> LISF=new ArrayList<String>()
-	 List<String> LISTFAILURE=new ArrayList<String>()
-	 List<String> SUCCESS = new ArrayList<String>()
-         List<String> FAILURE = new ArrayList<String>()
+  List<String> USERS = new ArrayList<String>()
+	List<String> USERF = new ArrayList<String>()
+ List<String>  LISTSUCCESS=new ArrayList<String>()
+	 List<String>  LISS=new ArrayList<String>()
+	 List<String>  LISF=new ArrayList<String>()
+	List<String> LISTFAILURE=new ArrayList<String>()
+	List<String> SUCCESS = new ArrayList<String>()
+    List<String> FAILURE = new ArrayList<String>()
 	 List<String> UNKNOWN = new ArrayList<String>()
-	 List<String> USERI = new ArrayList<String>()
-         List<String> LISI=new ArrayList<String>()
-	 List<String> LISTIN=new ArrayList<String>()
+	List<String> USERI = new ArrayList<String>()
+ List<String>  LISI=new ArrayList<String>()
+	 List<String>  LISTIN=new ArrayList<String>()
 	
 	
 
@@ -153,9 +159,10 @@ def bno=resultJson.results.result[0].buildNumber
 
 }
 
-catch(Exception e)
+catch(Exception response)
 {
-	if(response==400)
+	println(response)
+	if(response.equals("400"))
 	println("Bad Request")
         if(response==401)
 	println("Unauthorized")
