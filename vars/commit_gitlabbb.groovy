@@ -43,19 +43,25 @@ def jsonObj = readJSON text: jsonString
       //withCredentials([usernamePassword(credentialsId: 'gitlab_creds', passwordVariable: 'password', usernameVariable:'username')]) {
 	     // sh "curl -X GET   -u${username}:${password}  ${ip}api/v4/projects/${ids1}/repository/commits?per_page=100 -o outputgitlab.json"
       //}
- String response = sh(script: """curl  -X GET  -u ${username}:${password} '${ip}api/v4/projects/${ids1}/repository/commits?per_page=100'  """, returnStdout: true)
+// String response = sh(script: """curl  -X GET  -u ${username}:${password} '${ip}api/v4/projects/${ids1}/repository/commits?per_page=100'  """, returnStdout: true)
 
-  /* def jsonSlurper = new JsonSlurper()
+		def response = sh(script: """curl  -X GET -L -w '%{http_code}\\n' -u ${username}:${password} '${ip}api/v4/projects/${ids1}/repository/commits?per_page=100 """, returnStdout: true)
+try
+	{
+	
+	 def jsonSlurper = new JsonSlurper()
    def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/outputgitlab.json"),"UTF-8"))
 def resultJson = jsonSlurper.parse(reader)
 def total = resultJson.size()
    println(total)
-	println(ecount)*/
-		def resultJson= readJSON text: response
+	//println(ecount)
+	
+	
+		//def resultJson= readJSON text: response
 	def total = resultJson.size()
    println(total)
 
-      //println(JsonOutput.toJson(resultJson))
+      println(JsonOutput.toJson(resultJson))
       List<String> JSON = new ArrayList<String>();
    	 List<String> LIST = new ArrayList<String>();
 	 List<String> LIST1 = new ArrayList<String>();
@@ -102,7 +108,7 @@ File file = new File("/var/lib/jenkins/workspace/${JOB_NAME}/gitlabcommit.json")
 
 return jsonBuilder
 	
-
+	}
 catch(Exception e)
 {
 	//println(response)
