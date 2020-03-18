@@ -27,6 +27,11 @@ println(response)
 	if(response.equals(200))
 		{
 		println("scuccesslful")	
+			echo "hello"
+		}else
+		{
+			println("hi")
+			echo"hii"
 		}
 	
 
