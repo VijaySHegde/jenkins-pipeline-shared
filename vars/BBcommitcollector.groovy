@@ -73,6 +73,10 @@ jsonBuilder.bitbucket(
 return jsonBuilder
 }
 
+	catch(NotFound)
+	{
+	println("Not Found")
+	}
 	catch(BadRequest)
 	{
 	println("Bad request")
