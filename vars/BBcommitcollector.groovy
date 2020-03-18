@@ -77,6 +77,14 @@ return jsonBuilder
 	{
 	println("Bad request")
 	}
+	catch(Unauthorized)
+	{
+	println("Unauthorized")
+	}
+	catch(Internal Server Error)
+	{
+	println("Internal Server Error")
+	}
 	catch(NotFound)
 	{
 	println("Not Found")
