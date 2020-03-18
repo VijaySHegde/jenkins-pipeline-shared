@@ -160,15 +160,15 @@ def resultJson = jsonSlurper.parse(reader)
 
 catch(Exception e)
 {
-	if(sresponse==400)
+	if(response==400)
 	println("Bad Request")
-        if(sresponse==401)
+        if(response==401)
 	println("Unauthorized")
-        if(sresponse==403)
+        if(response==403)
 	println("Forbidden")
-        if(sresponse==404)
+        if(response==404)
 	println("Not Found")
-        if(sresponse==500)
+        if(response==500)
 	println("Internal Server Error")
 }
 	
