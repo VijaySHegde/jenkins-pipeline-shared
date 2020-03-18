@@ -74,7 +74,7 @@ jsonBuilder.bitbucket(
 	println(jsonBuilder.toPrettyString())
 return jsonBuilder
 }
-if(sresponse==404)
+else if(sresponse==404)
 	{
 	println("Not found")
 	}
