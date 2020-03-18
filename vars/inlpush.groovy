@@ -1,6 +1,6 @@
 def call(IP)
 {
-	 def response = sh(script: """curl -X POST --header 'Content-Type: application/json' -L -w '%{http_code}\n' --data @/var/lib/jenkins/workspace/${JOB_NAME}/Indivdual1.json  '${IP}'/api/metrics/members/add""", returnStdout: true)
+	 def response = sh(script: """curl -X POST --header 'Content-Type: application/json' -L -w '%{http_code}\n' --data @/var/lib/jenkins/workspace/${JOB_NAME}/Indivdual.json  '${IP}'/api/metrics/members/add""", returnStdout: true)
   //echo "Sending data to Gamification API"
 	if(response.contains("200"))
 		{
