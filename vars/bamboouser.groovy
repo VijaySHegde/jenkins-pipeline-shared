@@ -21,7 +21,7 @@ def password=jsonObja.password
 	println(res[1])
 	println("hi")
 	println(res[2])*/
-	String response = sh(script: """curl  -X GET -L -w '%{http_code}\\n' -u ${username}:${password} '${IP}/rest/api/latest/result/${key}.json?max-result=50&expand=results.result.artifacts&expand=changes.change.files&start-index=0' -o outputbamboo.json """, returnStdout: true)
+	String response = sh(script: """curl  -X GET -L -w '%{http_code}\\n' -u ${username}:${password} '${IP}//rest/api/latest/result/${key}.json?max-result=50&expand=results.result.artifacts&expand=changes.change.files&start-index=0' -o outputbamboo.json """, returnStdout: true)
 println(response) 
 	
 	
@@ -160,7 +160,7 @@ def resultJson = jsonSlurper.parse(reader)
 
 catch(Exception e)
 {
-	if(response==400)
+	if(response.equals("400"))
 	println("Bad Request")
         if(response==401)
 	println("Unauthorized")
