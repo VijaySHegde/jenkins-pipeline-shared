@@ -58,7 +58,7 @@ def total = resultJson.size()
 	
 	
 		//def resultJson= readJSON text: response
-	def total = resultJson.size()
+	//def total = resultJson.size()
    println(total)
 
       println(JsonOutput.toJson(resultJson))
