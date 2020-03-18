@@ -170,6 +170,7 @@ catch(Exception e)
 }
 	 finally{
 		//println(response)
+		 if(response!="null"){
 		if(response.contains("200"))
 		{
 		println("data collected scuccesslfully")	
@@ -185,6 +186,7 @@ catch(Exception e)
 		println("Forbidden")
 	if(response.contains("500"))
 		println("Internal Server Error")
+		 }
 		 else{
 		println("tool info is missing...")
 	}
