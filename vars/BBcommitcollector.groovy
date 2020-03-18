@@ -73,7 +73,7 @@ jsonBuilder.bitbucket(
 return jsonBuilder
 }
 	
-	catch(Exception e)
+	catch(NotFound)
 	{
 	println("Exception error")
 	if(sresponse==400)
