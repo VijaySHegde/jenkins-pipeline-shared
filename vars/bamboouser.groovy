@@ -157,11 +157,18 @@ def resultJson = jsonSlurper.parse(reader)
 	return jsonBuilder
 
 }
-}
+
 catch(Excepton e)
 {
-	if(response.startsWith(2))
+	println("hi")
+}
+	finally
+	{
+		if(response.startsWith(2))
 	{
 		println("scuccessfull")
 	}
+		
+	}
+	
 }
