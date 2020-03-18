@@ -155,7 +155,7 @@ def resultJson = jsonSlurper.parse(reader)
 
 	//println(jsonBuilder)
 //jsonBuilder =jsonBuilder.Stringify()
-		if(response==200)
+		if(response.equals("200"))
 		println("scuccesslful")	
 	return jsonBuilder
 	
