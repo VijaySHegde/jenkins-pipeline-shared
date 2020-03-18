@@ -185,10 +185,11 @@ catch(Exception e)
 		println("Forbidden")
 	if(response.contains("500"))
 		println("Internal Server Error")
-	}
-	else{
+		 else{
 		println("tool info is missing...")
 	}
+	}
+	
 		
 	
 }
