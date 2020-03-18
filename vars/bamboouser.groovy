@@ -23,7 +23,7 @@ def password=jsonObja.password
 	println(res[2])*/
 	
 	def response = sh(script: """curl  -X GET -L -w '%{http_code}\\n' -u ${username}:${password} '${IP}/rest/api/latest/result/${key}.json?max-result=50&expand=results.result.artifacts&expand=changes.change.files&start-index=0' -o outputbamboo.json """, returnStdout: true)
-println(response) 
+//println(response) 
 	
 	
 
@@ -37,7 +37,7 @@ def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/
 def resultJson = jsonSlurper.parse(reader)
 	//def resultJson= readJSON text: response
 	def bno=resultJson.results.result[0].buildNumber
-	println(bno)
+	//println(bno)
 
 
  
@@ -171,7 +171,7 @@ catch(Exception e)
 		//println(response)
 		if(response.contains("200"))
 		{
-		println("scuccesslful data collected")	
+		println("data collected scuccesslfully")	
 		
 		}
 	if(response.contains("404"))
