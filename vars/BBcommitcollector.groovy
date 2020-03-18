@@ -81,7 +81,7 @@ return jsonBuilder
 	{
 	println("Unauthorized")
 	}
-	catch(Internal Server Error)
+	catch(InternalServerError)
 	{
 	println("Internal Server Error")
 	}
