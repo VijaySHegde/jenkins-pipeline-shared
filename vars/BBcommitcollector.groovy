@@ -85,10 +85,7 @@ return jsonBuilder
 	{
 	println("Internal Server Error")
 	}
-	catch(NotFound)
-	{
-	println("Not Found")
-	}
+	
 	
 }
 
