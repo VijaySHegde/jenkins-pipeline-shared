@@ -22,13 +22,13 @@ println(userId)
 println(Url)
 // Date date = new Date() 
  //withCredentials([usernamePassword(credentialsId: 'bitbucket_cred', passwordVariable: 'pass', usernameVariable: 'userId')]) {
-def sresponse = sh(script: """curl -X GET -L -w '%{http_code}\\n' -H -d  -u '${userId}':'${pass}' '${Url}'/rest/api/1.0/projects/'${Key}'/repos/'${repoName}'/commits?limit=50 -o outputbitbucket.json""", returnStdout: true)
+def sresponse = sh(script: """curl -X GET -L -w '%{http_code}\\n' -H -d  -u '${userId}':'${pass}' '${Url}'/rest/api/1.0/projects/'${Key}'/repos/'${repoName}'/comits?limit=50 -o outputbitbucket.json""", returnStdout: true)
  //} 
 //HttpURLConnection http = (HttpURLConnection)url.openConnection();
 //int statusCode = http.getResponseCode();
 println(sresponse)
 try{
-if(sresponse==404)
+if(sresponse==200)
 	{
 def jsonSlurper = new JsonSlurper()
 def resultJson = jsonSlurper.parse(new File("/var/lib/jenkins/workspace/${JOB_NAME}/outputbitbucket.json"))
@@ -74,6 +74,10 @@ jsonBuilder.bitbucket(
 	println(jsonBuilder.toPrettyString())
 return jsonBuilder
 }
+if(sresponse==404)
+	{
+	println("Not found")
+	}
 }
 	catch(Exception e)
 	{
