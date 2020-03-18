@@ -53,7 +53,7 @@ try
    def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/outputgitlab.json"),"UTF-8"))
 def resultJson = jsonSlurper.parse(reader)
 def total = resultJson.size()
-   println(total)
+   //println(total)
 	//println(ecount)
 	
 	
@@ -61,7 +61,7 @@ def total = resultJson.size()
 	//def total = resultJson.size()
    println(total)
 
-      println(JsonOutput.toJson(resultJson))
+     // println(JsonOutput.toJson(resultJson))
       List<String> JSON = new ArrayList<String>();
    	 List<String> LIST = new ArrayList<String>();
 	 List<String> LIST1 = new ArrayList<String>();
