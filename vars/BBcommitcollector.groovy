@@ -73,21 +73,10 @@ jsonBuilder.bitbucket(
 return jsonBuilder
 }
 
-	catch(NotFound)
+	catch(Exception e)
 	{
-	println("Not Found")
-	}
-	catch(BadRequest)
-	{
-	println("Bad request")
-	}
-	catch(Unauthorized)
-	{
-	println("Unauthorized")
-	}
-	catch(InternalServerError)
-	{
-	println("Internal Server Error")
+	
+	println("Exception Occurred")
 	}
 	
 	
