@@ -45,7 +45,7 @@ def jsonObj = readJSON text: jsonString
       //}
 // String response = sh(script: """curl  -X GET  -u ${username}:${password} '${ip}api/v4/projects/${ids1}/repository/commits?per_page=100'  """, returnStdout: true)
 
-		def response = sh(script: """curl  -X GET -L -w '%{http_code}\\n' -u ${username}:${password} '${ip}api/v4/projects/${ids1}/repository/commits?per_page=100 """, returnStdout: true)
+		def response = sh(script: """curl  -X GET -L -w '%{http_code}\\n' -u ${username}:${password} '${ip}api/v4/projects/${ids1}/repository/commits?per_page=100 -o outputbamboo.json """, returnStdout: true)
 try
 	{
 	
