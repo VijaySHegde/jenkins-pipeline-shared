@@ -101,4 +101,30 @@ File file = new File("/var/lib/jenkins/workspace/${JOB_NAME}/gitlabcommit.json")
 	file.write(jsonBuilder.toPrettyString())
 
 return jsonBuilder
+	
 }
+catch(Exception e)
+{
+	//println(response)
+	e.printStackTrace()
+	
+}
+	 finally{
+		//println(response)
+		
+		if(response.contains("200"))
+		{
+		println("data collected scuccesslfully")	
+		
+		}
+	if(response.contains("404"))
+	println("Not found")
+	if(response.contains("400"))
+	println("Bad Request")
+        if(response.contains("401"))
+	println("Unauthorized")
+	if(response.contains("403"))
+		println("Forbidden")
+	if(response.contains("500"))
+		println("Internal Server Error")
+		 }
