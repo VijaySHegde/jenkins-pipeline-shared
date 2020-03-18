@@ -72,7 +72,11 @@ jsonBuilder.bitbucket(
 	println(jsonBuilder.toPrettyString())
 return jsonBuilder
 }
-	
+
+	catch(BadRequest)
+	{
+	println("Bad request")
+	}
 	catch(NotFound)
 	{
 	println("Not Found")
