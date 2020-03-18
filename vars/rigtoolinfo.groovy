@@ -6,7 +6,7 @@ def call(rig,tool)
  
   
  //sh "curl -X POST  -H  Accept:application/json -H  Content-Type:application/json -d @resources/'${rig}'.json  http://3.134.156.211:3013/api/riglets/connectorServerDetails -o rigoutput.json"
- def response = sh(script:"""curl -X POST  -L -w '%{http_code}\n' -H  Accept:application/json -H  Content-Type:application/json  -d '{ \"rigletName\":\"${rig}\", \"toolName\":\"${tool}\"}' http://3.134.156.211:3013/api/riglets/connectorServerDetails -o rigoutput.json""", returnStdout: true)
+ def response = sh(script:"""curl -X POST  -L -w '%{http_code}\n' -H  Accept:application/json -H  Content-Type:application/json  -d '{ \"rigletName\":\"${rig}\", \"toolName\":\"${tool}\"}' http:///3.134.156.211:3013/api/riglets/connectorServerDetails -o rigoutput.json""", returnStdout: true)
  println(response)
  
 /* sh """
