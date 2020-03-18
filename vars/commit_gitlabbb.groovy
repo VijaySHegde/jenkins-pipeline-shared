@@ -102,7 +102,7 @@ File file = new File("/var/lib/jenkins/workspace/${JOB_NAME}/gitlabcommit.json")
 
 return jsonBuilder
 	
-}
+
 catch(Exception e)
 {
 	//println(response)
