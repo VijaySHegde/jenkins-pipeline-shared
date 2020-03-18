@@ -6,15 +6,11 @@ def call(JSON,rig)
 def jsonString = JSON
 def jsonObj = readJSON text: jsonString
 def mailcount = jsonObj.riglet_info.auth_users.size()
-	println(mailcount)
 def key= jsonObj.ci.projectplankey.key
-	def jsonObja = readJSON text: rig
-	def IP=jsonObja.url
-	def username=jsonObja.userName
-	def password=jsonObja.password
-	//println(ip)
-//println(key)
- //withCredentials([usernamePassword(credentialsId: 'bamboo_cred', passwordVariable: 'password', usernameVariable:'username')]) {
+def jsonObja = readJSON text: rig
+def IP=jsonObja.url
+def username=jsonObja.userName
+def password=jsonObja.password
 String sresponse = sh(script: """curl  -X GET -L -w '%{url_effective} %{http_code}\\n' -u ${username}:${password} '${IP}/rest/api/latest/result/${key}.json?max-result=50&expand=results.result.artifacts&expand=changes.change.files&start-index=0'  """, returnStdout: true)
 println("hi")
 	//println(sresponse) 
