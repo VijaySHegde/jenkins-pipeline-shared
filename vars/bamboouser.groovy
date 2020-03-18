@@ -22,17 +22,9 @@ def password=jsonObja.password
 	println("hi")
 	println(res[2])*/
 	
-	def response = sh(script: """curl  -X GET -L -w '%{http_code}\\n' -u ${username}:${password} '${IP}/rest/api/latest/result/${key}.json?max-result=50&expand=results.result.artifacts&expand=changes.change.files&start-index=0' -o outputbamboo.json """, returnStdout: true)
+	def response = sh(script: """curl  -X GET -L -w '%{http_code}\\n' -u ${username}:${password} '${IP}//rest/api/latest/result/${key}.json?max-result=50&expand=results.result.artifacts&expand=changes.change.files&start-index=0' -o outputbamboo.json """, returnStdout: true)
 println(response) 
-	if(response.contains("200"))
-		{
-		println("scuccesslful")	
-			echo "hello"
-		}else
-		{
-			println("hi")
-			echo"hii"
-		}
+	
 	
 
 // }
@@ -176,25 +168,22 @@ catch(Exception e)
 	
 }
 	 finally{
-		println(response)
-		if(response==200)
-		println("scuccesslful")
-	if(response==404)
-	println("Not found");
-	if(response.equals("400"))
-	{
+		//println(response)
+		if(response.contains("200"))
+		{
+		println("scuccesslful data collected")	
+		
+		}
+	if(response.contains("404"))
+	println("Not found")
+	if(response.contains("400"))
 	println("Bad Request")
-	}
-        if(response==401)
-	{
+        if(response.contains("401"))
 	println("Unauthorized")
-	}
-	if(response==403){
-		println("Forbidden")}
-	if(response==404){
-		println("Not Found")}
-	if(response==500){
-		println("Internal Server Error")}
+	if(response.contains("403"))
+		println("Forbidden")
+	if(response.contains("500"))
+		println("Internal Server Error")
 	}
 	
 }
