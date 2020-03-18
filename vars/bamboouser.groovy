@@ -3,8 +3,7 @@ import groovy.json.JsonOutput
 
 def call(JSON,rig)
 {
-	try
-	{
+	
 def jsonString = JSON
 def jsonObj = readJSON text: jsonString
 def mailcount = jsonObj.riglet_info.auth_users.size()
@@ -32,6 +31,8 @@ def password=jsonObja.password
 // }
 	
 	//println(response)
+	try
+	{
 	
 	def jsonSlurper = new JsonSlurper()
 def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/outputbamboo.json"),"UTF-8"))
@@ -170,7 +171,7 @@ catch(Exception e)
 }
 	 finally{
 		//println(response)
-		 if(response!="null"){
+		
 		if(response.contains("200"))
 		{
 		println("data collected scuccesslfully")	
@@ -187,9 +188,7 @@ catch(Exception e)
 	if(response.contains("500"))
 		println("Internal Server Error")
 		 }
-		 else{
-		println("tool info is missing...")
-	}
+		
 	}
 	
 		
