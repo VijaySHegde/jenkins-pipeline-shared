@@ -162,7 +162,8 @@ def resultJson = jsonSlurper.parse(reader)
 	
 catch(Exception e)
 {
-	println(response)
+	//println(response)
+	e.printStackTrace()
 	if(response==404)
 	throw new Exception ("Not found");
 	if(response.equals("400"))
