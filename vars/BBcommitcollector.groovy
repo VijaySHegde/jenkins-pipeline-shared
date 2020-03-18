@@ -28,6 +28,8 @@ def sresponse = sh(script: """curl -X GET -L -w '%{http_code}\\n' -H -d  -u '${u
 //int statusCode = http.getResponseCode();
 println(sresponse)
 try{
+if(sresponse==404)
+	{
 def jsonSlurper = new JsonSlurper()
 def resultJson = jsonSlurper.parse(new File("/var/lib/jenkins/workspace/${JOB_NAME}/outputbitbucket.json"))
 def total = resultJson.size
@@ -72,7 +74,7 @@ jsonBuilder.bitbucket(
 	println(jsonBuilder.toPrettyString())
 return jsonBuilder
 }
-
+}
 	catch(Exception e)
 	{
 	
