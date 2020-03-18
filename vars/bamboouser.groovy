@@ -167,6 +167,7 @@ catch(Exception e)
 	
 }
 	finally{
+		println(response)
 		if(response==200)
 		println("scuccesslful")
 	if(response==404)
