@@ -22,11 +22,11 @@ println(userId)
 println(Url)
 // Date date = new Date() 
  //withCredentials([usernamePassword(credentialsId: 'bitbucket_cred', passwordVariable: 'pass', usernameVariable: 'userId')]) {
-def sresponse = sh(script: """curl -X GET -L -w '%{http_code}\\n' -H -d  -u '${userId}':'${pass}' '${Url}'/rest/api/1.0/projects/'${Key}'/repos/'${repoName}'/commits?limit=50 -o outputbitbucket.json""", returnStdout: true)
+def response = sh(script: """curl -X GET -L -w '%{http_code}\\n' -H -d  -u '${userId}':'${pass}' '${Url}'/rest/api/1.0/projects/'${Key}'/repos/'${repoName}'/commits?limit=50 -o outputbitbucket.json""", returnStdout: true)
  //} 
 //HttpURLConnection http = (HttpURLConnection)url.openConnection();
 //int statusCode = http.getResponseCode();
-println(sresponse)
+println(response)
 try{
 def jsonSlurper = new JsonSlurper()
 def resultJson = jsonSlurper.parse(new File("/var/lib/jenkins/workspace/${JOB_NAME}/outputbitbucket.json"))
@@ -74,10 +74,28 @@ return jsonBuilder
 }
 
 	catch(Exception e)
-	{
+{
 	
-	println("Exception Occurred")
-	}
+	e.printStackTrace()
+	
+}
+	 finally{
+		if(response.contains("200"))
+		{
+		println("data collected scuccesslfully")	
+		}
+	if(response.contains("404"))
+	println("Not found")
+	if(response.contains("400"))
+	println("Bad Request")
+        if(response.contains("401"))
+	println("Unauthorized")
+	if(response.contains("403"))
+	println("Forbidden")
+	if(response.contains("500"))
+	println("Internal Server Error")
+		 }
+		
 	
 	
 }
