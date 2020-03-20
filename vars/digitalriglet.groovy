@@ -48,7 +48,7 @@ int total=jsonObja.bitbucket.Commit_count
   //println(total)
  
 	    LIST.add(["toolName":name,"metricName":"commits","value":total])
-    }
+    }  
 	   if(jsonStringa[i].contains("JENKINS") && ci=="jenkins")
     {
       name="jenkins"
