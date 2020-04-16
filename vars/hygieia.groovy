@@ -1,9 +1,9 @@
 import groovy.json.*
 import groovy.json.JsonOutput
 
-def call(json)
+def call(JSON)
 {
-	def jsonString = json
+	def jsonString = JSON
 def jsonObj = readJSON text: jsonString
 	def dashboardname=jsonObj.hygieia.applicationname
 	println(dashboardname)
