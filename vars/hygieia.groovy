@@ -7,7 +7,7 @@ def jsonObj = readJSON text: JSON
 def dashboardname=jsonObj.hygieia.applicationname
 def dashboardtitle=jsonObj.hygieia.title
 def dashboardtemplate=jsonObj.hygieia.template
-def gitbranch=jsonObj.scm.projects[0].project.url
+def gitbranch=jsonObj.scm.projects.project[0].url
 	
 println(gitbranch)
 	println(dashboardname)
