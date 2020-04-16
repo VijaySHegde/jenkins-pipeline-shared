@@ -7,7 +7,7 @@ def jsonObj = readJSON text: JSON
 def dashboardname=jsonObj.hygieia.applicationname
 def dashboardtitle=jsonObj.hygieia.title
 def dashboardtemplate=jsonObj.hygieia.template
-def gitbranch=jsonObj.scm.projects.project.url
+def gitbranch=jsonObj.scm.projects[0].project.url
 	
 println(gitbranch)
 	println(dashboardname)
@@ -24,7 +24,7 @@ sh """ curl -X POST \
   		 
   		"toolName":"GitHub",
   		"description":"Brief description",
-  		"options":{"branch":"master","url":"https://github.com/kavi1997/demo",
+  		"options":{"branch":"master","url":"${gitbranch}",
   	"personalAccessToken":""}
   	
   	}
