@@ -35,7 +35,7 @@ sh """ curl -X POST \
   		 
   		"toolName":"GitHub",
   		"description":"Brief description",
-  		"options":{"branch":"${gitbranch}","url":"${gitbranch}",
+  		"options":{"branch":"${gitbranch}","url":"${giturl}",
   	"personalAccessToken":""}
   	
   	}
