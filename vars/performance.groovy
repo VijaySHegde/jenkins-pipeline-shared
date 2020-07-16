@@ -4,6 +4,6 @@ blazeMeterTest abortJob: true,
            credentialsId: 'blazemetre', 
            getJtl: true, 
            getJunit: true, 
-           testId: '7425390.taurus', 
-           workspaceId: '390580'
+           testId: '8285708.taurus', 
+           workspaceId: '390025'
            }
