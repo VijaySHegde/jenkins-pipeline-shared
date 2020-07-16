@@ -5,5 +5,5 @@ def call (body)
 sh """ curl 'https://a.blazemeter.com/api/v4/tests//start' \
     -X POST \
     -H 'Content-Type: application/json' \
-    --user 'api_key_id:api_key_secret'   """
+    --user '76e55f8643e1efa3908b72bc:1e5ddeaa983cbdc10a382b7b24edabf9fc71eab5d2f9fe834cad267583a817bb0eb647d3'   """
 }
