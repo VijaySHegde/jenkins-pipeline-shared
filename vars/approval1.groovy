@@ -11,7 +11,7 @@ echo "${msg}"
                               submitterParameter: 'submitter',
                               submitter: 'Vijay',
                               parameters: [
-                                [$class: 'TextParameterDefinition', defaultValue: 'sit', description: 'Environment', name: 'env'],
+                                [$class: 'TextParameterDefinition', defaultValue: 'dev', description: 'Environment', name: 'env'],
                                 [$class: 'TextParameterDefinition', defaultValue: 'k8s', description: 'Target', name: 'target']]
 
         echo ("Env: "+userInput['env'])
